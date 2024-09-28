@@ -170,7 +170,6 @@
           position: absolute;
           width: 5px;
           height: 5px;
-          background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH81-c_bCMuMgQWQwVKRawH-31AYkWcwp41bf6-r-xv596usEIXbhIe6PbiWdCaF9PNC8w1NJbHRd_hz2zy-bZJWTZ-mof7p6Z50x7nBnBYV8wmmrc2EX-3U9e0B7vEaz0QsBX3V__SViJKMa3TxR0r7cMJFW4LfFT6cCygQNwwnqnGXbMVRE9RcckuQ/s128/2023-02-22_22.11.00.png");
           background-size: contain;
           animation: rain-drops infinite linear;
         }
