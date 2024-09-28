@@ -1,6 +1,4 @@
 window.addEventListener("load", function(){
-  //for textures
-  //$().css(var, valor);
   let textures = GameProps.getFileGame().folder("textures");
   textures.forEach(function(RelaPath, Texture){
     Texture.async("string").then(function(TextureBytes){
