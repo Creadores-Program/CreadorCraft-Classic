@@ -10,6 +10,12 @@ window.addEventListener("load", function(){
         case "CloudsN.png":
           $(".cloudsN, .cloudsN1, .cloudsN2, .cloudsN3, .cloudsN4, .cloudsN5").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
           break;
+        case "CloudsW.png":
+          $(".cloudsW, .cloudsW1, .cloudsW2, .cloudsW3, .cloudsW4, .cloudsW5").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          break;
+        case "Drops.png":
+          $(".dropsbackground drops").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          break;
       }
     });
   });
