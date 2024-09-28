@@ -1,4 +1,8 @@
 {
   "name": "CreadorCraft Classic",
-  "description": "EN: Game Inspired by Minecraft, Terraria and LepS World! Have fun Killing Monsters and Game Bosses!"
+  "description": "EN: Game Inspired by Minecraft, Terraria and LepS World! Have fun Killing Monsters and Game Bosses!<br/>SP: Juego Inspirado en Minecraft, Terraria y LepS World! Diviértete Matando Mounstros y Jefes del Juego!",
+  "icon": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1h0GHLnuHaFdex4vhuPXWJJMFAl0icDzl_yGPxFfEY2AKU2_Y9s0Zq0P__5f5S2tI1nwfInwS10uzuYyNQtof0q498SyVJH7rvF4wicr_JdmTUYEzJEJG0_ZniinqlcZJljDl2SWnPmUozAOg8BeNhtnFl8wIBLXMG5etccWHG6oAqj1Rw2wIcTir5g/s500/20230318_223742_0000.png",
+  "mainHtml": "index.html",
+  "mainJS": "main.js",
+  "mainCSS": "index.css"
 }
