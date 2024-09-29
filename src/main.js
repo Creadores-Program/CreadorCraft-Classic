@@ -64,7 +64,7 @@ function weatherCycleInit() {
               drops.style.animationDelay = time + 's';
               drops.style.left = x + 'px';
               dropsfond.appendChild(dropsd);
-              randomdrop++
+              randomdrop++;
               }
             }
             rain();
