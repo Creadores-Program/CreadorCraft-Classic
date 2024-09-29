@@ -137,3 +137,18 @@ function daycycle() {
             moon.style.right = moonPosition + "px";
             }
           }
+function startGameWorld() {
+          GameProps.getClickStartSound().play();
+          $("#stopGameMusicBtn").show();
+          GameProps.getGameMusic().play();
+          daycycle();
+          var daycycle1 = setInterval(daycycle, 1000 * 60);
+            weatherCycle();
+            setInterval(weatherCycle, 2000 * 120);
+            var terrainGeneration = document.getElementById("terrain");
+            var playerMax = document.getElementById("playerMax");
+            var collisionP = false;
+            for (var i = 0; i < 6000; i++) {
+              terrainGeneration.innerHTML += "<div id='grass"+i+"' style='with:1px; height:1px;left:"+i+"px;background-color: green;'></div>";
+            }
+        }
