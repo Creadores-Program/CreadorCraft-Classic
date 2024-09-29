@@ -180,7 +180,6 @@
           height: 200px;
           top: -200px;
           left: 50%;
-          background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgb-1p4ZrhSFQN0UBFCXnjm6qbSPbFIwk_N-E8cHsf1pmEYdQk8Da1T-ZSwe5RTtrGpo47QvO7D95PTTYsbs3TfmazDLgladjllrw1VsLwsTp8mv-JulCLRzFBwd9LnkqIVp99j7t1RXWvQCYfRkZzEiwprO9K0dqqnb1gob7JmCQeAsAnrMlNm80Nb9A/s256/2023-02-22_22.13.55.png");
           background-size: contain;
           background-repeat: no-repeat;
           transform: translateX(-50%);
@@ -237,14 +236,12 @@
           width: 100%;
           height: 100%;
           z-index: 0;
-          background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCSWF3XaQ-34DS3-v1_stPaai-eVbxsUdma7_P0lDNQdfi_0-mbXdMMQyNvFlSYsglYAyQD3CICEiUQyC9swoz93Xj61FEKErtg76UC68qJSkg5doBPWqCvBC-y1KfnSHEi9iSH7xH9Jst_MVYPL6NfvKZDOWLEyyPQgKclu4mKSedK7-ovlMc0yov6A/s306/images.jpeg");
           }
         
         .sunGame {
       position: absolute;
       width: 100px;
       height: 100px;
-      background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4nuCxat50sv9u-t3GpoNDbWSqdkIffWHf6VU3gR38D1t86Mlbm7-RcNSwfFoDMLK9A6_cSIPySywudJamhaPV9nfgqDnQIVuQlumJcb0Yx0P4xq7c6fmvA0tp-9hUbF8EToBeACXsRKqTlJHuIM-nsGblaStBIV3mf57ZXtHTOK-FyjeJjwuFLqs1KA/s192/2023-02-15_07.14.05.png");
       background-size: contain;
       visibility: hidden;
           z-index: 1;
@@ -254,7 +251,6 @@
       position: absolute;
       width: 95px;
       height: 95px;
-      background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-LRou3fzBUrbRJEzHUF8CdjGLvDrPkdkwSRqaQzl90oVpWyYp05kDhEVPaQJP9CCzsLHRx30odsAdeivecHT52ocbMsJ2CQDYTtKWPWpQo6qjPum7XLsx7AYgPtCeEmt9apMYnWgLbpmcWYxw2CyI5DF7ozTo2wBcQt0I80a4FngGvq5UzQiq1u5AlQ/s192/2023-02-16_07.13.58.png");
       background-size: contain;
       visibility: hidden;
           z-index: 1;

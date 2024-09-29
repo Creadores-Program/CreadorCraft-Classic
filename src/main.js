@@ -16,6 +16,18 @@ window.addEventListener("load", function(){
         case "Drops.png":
           $(".dropsbackground drops").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
           break;
+        case "Lightning.png":
+          $(".lightning").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          break;
+        case "Stars.jpg":
+          $(".starsGame").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          break;
+        case "Sun.png":
+          $(".sunGame").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          break;
+        case "Moon.png":
+          $(".moonGame").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          break;
       }
     });
   });
