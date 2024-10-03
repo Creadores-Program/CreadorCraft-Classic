@@ -31,6 +31,7 @@ window.addEventListener("load", function(){
       }
     });
   });
+  startGameWorld();
 });
 
 function weatherCycleInit() {
@@ -160,7 +161,9 @@ function startGameWorld() {
             var terrainGeneration = document.getElementById("terrain");
             var playerMax = document.getElementById("playerMax");
             var collisionP = false;
-            for (var i = 0; i < 6000; i++) {
-              terrainGeneration.innerHTML += "<div id='grass"+i+"' style='with:1px; height:1px;left:"+i+"px;background-color: green;'></div>";
+            let i = 0;
+            while(i < 6000) {
+              terrainGeneration.innerHTML += "<div id='grass"+i+"' style='with:5px; height:5px; left:"+(i+4)+"px; background-color: green;'></div>";
+              i++;
             }
         }
