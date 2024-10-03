@@ -35,6 +35,7 @@ window.addEventListener("load", function(){
 });
 
 function weatherCycleInit() {
+          let date = new Date();
           var hours2 = date.getHours();
           var weatherStart = Math.random() * (23 - 0) + 0;
           var weaterStop = Math.random() * (23 - 1) + 1;
@@ -156,8 +157,8 @@ function startGameWorld() {
           GameProps.getGameMusic().play();
           daycycle();
           var daycycle1 = setInterval(daycycle, 1000 * 60);
-            weatherCycle();
-            setInterval(weatherCycle, 2000 * 120);
+            weatherCycleInit();
+            setInterval(weatherCycleInit, 2000 * 120);
             var terrainGeneration = document.getElementById("terrain");
             var playerMax = document.getElementById("playerMax");
             var collisionP = false;
