@@ -1,32 +1,35 @@
 window.addEventListener("load", function(){
   let textures = GameProps.getFileGame().folder("textures");
   textures.forEach(function(RelaPath, Texture){
-    Texture.async("string").then(function(TextureBytes){
-      let TexturB64 = btoa(TextureBytes);
+    Texture.async("uint8array").then(function(TextureBytes){
+      let TexturBlob = new Blob([TextureBytes], {
+        type: "image/png"
+      });
+      let TexturUrl = URL.createObjectURL(TexturBlob);
       switch(RelaPath){
         case "Clouds.png":
-          $(".clouds, .clouds1, .clouds2, .clouds3, .clouds4, .clouds5").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".clouds, .clouds1, .clouds2, .clouds3, .clouds4, .clouds5").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "CloudsN.png":
-          $(".cloudsN, .cloudsN1, .cloudsN2, .cloudsN3, .cloudsN4, .cloudsN5").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".cloudsN, .cloudsN1, .cloudsN2, .cloudsN3, .cloudsN4, .cloudsN5").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "CloudsW.png":
-          $(".cloudsW, .cloudsW1, .cloudsW2, .cloudsW3, .cloudsW4, .cloudsW5").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".cloudsW, .cloudsW1, .cloudsW2, .cloudsW3, .cloudsW4, .cloudsW5").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "Drops.png":
-          $(".dropsbackground drops").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".dropsbackground drops").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "Lightning.png":
-          $(".lightning").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".lightning").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "Stars.jpg":
-          $(".starsGame").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".starsGame").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "Sun.png":
-          $(".sunGame").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".sunGame").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "Moon.png":
-          $(".moonGame").css("background-image", 'url("data:image/png;base64,'+TexturB64+'")');
+          $(".moonGame").css("background-image", 'url("'+TexturUrl+'")');
           break;
       }
     });
@@ -162,9 +165,9 @@ function startGameWorld() {
             var terrainGeneration = document.getElementById("terrain");
             var playerMax = document.getElementById("playerMax");
             var collisionP = false;
-            let i = 0;
-            while(i < 6000) {
-              terrainGeneration.innerHTML += "<div id='grass"+i+"' style='with:5px; height:5px; left:"+(i+4)+"px; background-color: green;'></div>";
-              i++;
-            }
+//            let i = 0;
+//            while(i < 6000) {
+//              terrainGeneration.innerHTML += "<div id='grass"+i+"' style='with:5px; height:5px; left:"+(i+4)+"px; background-color: green;'></div>";
+//              i++;
+//            }
         }
