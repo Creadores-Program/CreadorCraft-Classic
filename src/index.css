@@ -324,3 +324,9 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+#world1Level{
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+}

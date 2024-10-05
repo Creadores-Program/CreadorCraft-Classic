@@ -4,6 +4,7 @@ $("#Loader").hide();
 $("#Loader").fadeIn();
 var nameSpace = {};
 var textures = {};
+var daycycle1;
 window.addEventListener("load", function(){
   $("#LoaderBar").prop("value", "100");
   $("#LoaderBar").html("Loading Textures...");
@@ -206,7 +207,7 @@ function startGameWorld() {
           $("#stopGameMusicBtn").show();
           GameProps.getGameMusic().play();
           daycycle();
-          var daycycle1 = setInterval(daycycle, 1000 * 60);
+          daycycle1 = setInterval(daycycle, 1000 * 60);
             weatherCycleInit();
             setInterval(weatherCycleInit, 2000 * 120);
             var terrainGeneration = document.getElementById("terrain");
