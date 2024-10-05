@@ -35,7 +35,7 @@ window.addEventListener("load", function(){
         case "Lightning.png":
           $(".lightning").css("background-image", 'url("'+TexturUrl+'")');
           break;
-        case "Stars.jpg":
+        case "Stars.png":
           $(".starsGame").css("background-image", 'url("'+TexturUrl+'")');
           break;
         case "Sun.png":
