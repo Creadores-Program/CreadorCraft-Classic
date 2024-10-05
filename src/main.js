@@ -168,8 +168,8 @@ function daycycle() {
             $(".cloudsW3").hide();
             $(".cloudsW4").hide();
             $(".cloudsW5").hide();
-            var sunPosition = (hours - 0) * 10;
-            sun.style.left = sunPosition + "px";
+            var sunPosition = ((hours / 60) * 100).toFixed(2);
+            sun.style.left = sunPosition + "%";
             
           } else {
             document.body.style.backgroundColor = '#0C090A';
@@ -195,8 +195,8 @@ function daycycle() {
             $(".cloudsN5").show();
             $("#starsGame").show();
             $(".starsGame").show();
-            var moonPosition = (hours - 30) * 10;
-            moon.style.right = moonPosition + "px";
+            var moonPosition = ((hours / 60) * 100).toFixed(2);
+            moon.style.right = moonPosition + "%";
             }
           }
 function startGameWorld() {
