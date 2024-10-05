@@ -1,14 +1,25 @@
 nameSpace.js.Blocks.Block = class {
-    static idBlocks = ["tierraBlock", "mesaDeCraftBlock", "hierroBlock", "rubyBlock", "carbonBlock", "diamanteBlock", "hojasBlock", "troncoDeMaderaBlock", "arenaBlock", "piedraBlock", "cespedBlock"];
-    static resistencia = 0;
+    static idBlocks = ["tierraBlock", "mesaDeCraftBlock", "hierroBlock", "rubyBlock", "carbonBlock", "diamanteBlock", "oroBlock", "hojasBlock", "troncoDeMaderaBlock", "arenaBlock", "piedraBlock", "cespedBlock"];
+    static resistencia = -1;
     static id = "aireBlock";
-    constructor() {
+    constructor(x, y, world) {
+        this.x = x;
+        this.y = y;
+        this.blockElement = terrain.createElement("div");
+        this.blockElement.classList.add("Block");
+        this.world = world;
     }
-    remove(){}
+    remove(){
+        this.blockElement.remove();
+        //world modify
+    }
     getTexture(){
         return "";
     }
-    isInmune(){
+    isBreak(){
         return false;
+    }
+    toItem(){
+        return new nameSpace.js.Blocks.Items.Item();
     }
 };

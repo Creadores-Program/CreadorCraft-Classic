@@ -13,6 +13,7 @@
       width: 100px;
       height: 100px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 65s infinite linear;
         }
@@ -22,6 +23,7 @@
       width: 80px;
       height: 80px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 45s infinite linear;
         }
@@ -31,6 +33,7 @@
       width: 75px;
       height: 75px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 25s infinite linear;
           z-index: 1;
@@ -41,6 +44,7 @@
       width: 93px;
       height: 93px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 80s infinite linear;
         }
@@ -50,6 +54,7 @@
       width: 90px;
       height: 90px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 120s infinite linear;
         }
@@ -59,6 +64,7 @@
       width: 70px;
       height: 70px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 150s infinite linear;
         }
@@ -68,6 +74,7 @@
       width: 100px;
       height: 100px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 65s infinite linear;
         }
@@ -77,6 +84,7 @@
       width: 80px;
       height: 80px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 45s infinite linear;
         }
@@ -87,6 +95,7 @@
       height: 75px;
           z-index: 2;
       background-size: contain;
+      background-repeat: no-repeat;
       animation: move-cloud 25s infinite linear;
         }
       
@@ -96,6 +105,7 @@
       height: 93px;
           z-index: 2;
       background-size: contain;
+      background-repeat: no-repeat;
       animation: move-cloud 80s infinite linear;
         }
       
@@ -104,6 +114,7 @@
       width: 90px;
       height: 90px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 120s infinite linear;
         }
@@ -113,6 +124,7 @@
       width: 70px;
       height: 70px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 150s infinite linear;
         }
@@ -122,6 +134,7 @@
       width: 100px;
       height: 100px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 65s infinite linear;
         }
@@ -131,6 +144,7 @@
       width: 75px;
       height: 75px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 65s infinite linear;
         }
@@ -140,6 +154,7 @@
       width: 100px;
       height: 100px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 25s infinite linear;
         }
@@ -149,6 +164,7 @@
       width: 93px;
       height: 93px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 80s infinite linear;
         }
@@ -158,6 +174,7 @@
       width: 90px;
       height: 90px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 120s infinite linear;
         }
@@ -167,6 +184,7 @@
       width: 70px;
       height: 70px;
       background-size: contain;
+      background-repeat: no-repeat;
           z-index: 2;
       animation: move-cloud 150s infinite linear;
         }
@@ -181,6 +199,7 @@
           width: 5px;
           height: 5px;
           background-size: contain;
+          background-repeat: no-repeat;
           animation: rain-drops infinite linear;
         }
       
@@ -245,6 +264,8 @@
           position: absolute;
           width: 100%;
           height: 100%;
+          background-repeat: no-repeat;
+          background-size: contain;
           z-index: 0;
           }
         
@@ -253,6 +274,7 @@
       width: 100px;
       height: 100px;
       background-size: contain;
+      background-repeat: no-repeat;
       visibility: hidden;
           z-index: 1;
         }
@@ -262,6 +284,7 @@
       width: 95px;
       height: 95px;
       background-size: contain;
+      background-repeat: no-repeat;
       visibility: hidden;
           z-index: 1;
         }
@@ -298,4 +321,6 @@
   margin: auto;
   width: 60px;
   height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
