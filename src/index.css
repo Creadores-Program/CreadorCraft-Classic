@@ -258,9 +258,10 @@
         
         #terrain {
           position: relative;
-          width: 6000px;
-          height: 300px;
-          border: 1px solid black;
+          width: 100%;
+          height: 100%;
+          top: 0%;
+          left: 0%;
           z-index: 5;
         }
         #playerMax {
@@ -271,7 +272,6 @@
           background-size: contain;
           background-repeat: no-repeat;
           z-index: 6;
-          
         }
 .gameControl {
           position: fixed;
@@ -279,5 +279,13 @@
           margin: auto;
           width: 100%;
           bottom: 6px;
+          left: 0%;
           z-index: 1000;
+}
+.Block{
+  position: fixed;
+  display: block;
+  margin: auto;
+  width: 60px;
+  height: 60px;
 }

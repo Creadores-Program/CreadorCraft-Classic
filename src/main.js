@@ -1,9 +1,22 @@
+$("#world1Level").hide();
+$("#gameControl").hide();
+$("#Loader").hide();
+$("#Loader").fadeIn();
+var nameSpace = {};
+var textures = {};
 window.addEventListener("load", function(){
+  $("#LoaderBar").prop("value", "100");
+  $("#LoaderBar").html("Loading Textures...");
+  $("#LoaderBar").prop("value", "0");
   let textures = GameProps.getFileGame().folder("textures");
+  let valP = 0;
   textures.forEach(function(RelaPath, Texture){
+    if(RelaPath.endsWith("/")) return;
     Texture.async("uint8array").then(function(TextureBytes){
+      valP++;
+      $("#LoaderBar").prop("value", valP);
       let TexturBlob = new Blob([TextureBytes], {
-        type: "image/png"
+        type: "image/webp"
       });
       let TexturUrl = URL.createObjectURL(TexturBlob);
       switch(RelaPath){
@@ -31,9 +44,41 @@ window.addEventListener("load", function(){
         case "Moon.png":
           $(".moonGame").css("background-image", 'url("'+TexturUrl+'")');
           break;
+        case "Blocks/Tierra.png":
+          $(".tierraBlock, .tierra").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/MesaDeCraft.png":
+          $(".mesaDeCraftBlock, .mesaDeCraft").css("background-image", 'url("'+TexturUrl+'")');
+          break;
       }
+      textures[RelaPath.replaceAll("/", "-")] = TexturUrl;
+    }).catch(function(err){
+      alert("Error al Cargar Texturas\nJuego Dañado!\n\nError Loading Textures!\nGame Corrupted!");
+      throw err;
     });
   });
+  let clasesJS = GameProps.getFileGame().folder("js");
+  valP = 0;
+  $("#LoaderBar").prop("value", valP);
+  $("#LoaderBar").html("Loading Resources...");
+  nameSpace.js = {};
+  nameSpace.js.Blocks = {};
+  nameSpace.js.Blocks.Items = {};
+  nameSpace.js.Entitys = {};
+  nameSpace.js.Terreno = {};
+  let clasesExtendB = [];
+  clasesJS.forEach(function (RelaPath, claseJS) {
+    if(RelaPath.endsWith("/")) return;
+    claseJS.async("string").then(function (claseJSstr) {
+      valP++;
+      $("#LoaderBar").prop("value", valP);
+      let execC = new Function(claseJSstr);
+      execC();
+    });
+  });
+  for(let cEB of clasesExtendB){
+    cEB();
+  }
   startGameWorld();
 });
 
@@ -156,6 +201,8 @@ function daycycle() {
           }
 function startGameWorld() {
           GameProps.getClickStartSound().play();
+          $("html, body").css("overflow-y", "hidden");
+          $("html, body").css("overflow-x", "hidden");
           $("#stopGameMusicBtn").show();
           GameProps.getGameMusic().play();
           daycycle();
@@ -165,9 +212,4 @@ function startGameWorld() {
             var terrainGeneration = document.getElementById("terrain");
             var playerMax = document.getElementById("playerMax");
             var collisionP = false;
-//            let i = 0;
-//            while(i < 6000) {
-//              terrainGeneration.innerHTML += "<div id='grass"+i+"' style='with:5px; height:5px; left:"+(i+4)+"px; background-color: green;'></div>";
-//              i++;
-//            }
         }
