@@ -60,8 +60,14 @@ window.addEventListener("load", function(){
         case "Blocks/Arena.png":
           $(".arenaBlock, .arena").css("background-image", 'url("'+TexturUrl+'")');
           break;
+        case "Blocks/TroncoDeMadera.png":
+          $(".troncoDeMaderaBlock, .troncoDeMadera").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/Hojas.png":
+          $(".hojasBlock, .hojas").css("background-image", 'url("'+TexturUrl+'")');
+          break;
       }
-      textures[RelaPath.trim().replaceAll("/", "-").replaceAll(".png", "")] = TexturUrl;
+      textures[RelaPath.trim().replaceAll("/", "_").replaceAll(".png", "")] = TexturUrl;
     }).catch(function(err){
       alert("Error al Cargar Texturas\nJuego Dañado!\n\nError Loading Textures!\nGame Corrupted!");
       throw err;

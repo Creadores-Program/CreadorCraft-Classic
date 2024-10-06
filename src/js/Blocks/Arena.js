@@ -7,7 +7,7 @@ function registerC(){
             this.blockElement.classList.add(nameSpace.js.Blocks.Arena.id);
         }
         getTexture(){
-            return textures.Blocks-Arena;
+            return textures.Blocks_Arena;
         }
         isBreak(){
             return true;

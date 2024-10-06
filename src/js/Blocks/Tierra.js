@@ -7,7 +7,7 @@ function registerC(){
             this.blockElement.classList.add(nameSpace.js.Blocks.Tierra.id);
         }
         getTexture(){
-            return textures.Blocks-Tierra;
+            return textures.Blocks_Tierra;
         }
         isBreak(){
             return true;

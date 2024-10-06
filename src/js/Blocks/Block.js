@@ -19,7 +19,7 @@ nameSpace.js.Blocks.Block = class {
     isBreak(){
         return false;
     }
-    toItem(){
-        return new nameSpace.js.Items.Item();
+    toItem(player, slot){
+        return new nameSpace.js.Items.Item(player, slot);
     }
 };

@@ -7,7 +7,7 @@ function registerC(){
             this.blockElement.classList.add(nameSpace.js.Blocks.Cesped.id);
         }
         getTexture(){
-            return textures.Blocks-Cesped;
+            return textures.Blocks_Cesped;
         }
         isBreak(){
             return true;
