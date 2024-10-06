@@ -5,6 +5,7 @@ $("#Loader").fadeIn();
 var nameSpace = {};
 var textures = {};
 var daycycle1;
+var clasesExtendB = [];
 window.addEventListener("load", function(){
   $("#LoaderBar").prop("value", "100");
   $("#LoaderTxt").html("Loading Textures...");
@@ -82,7 +83,6 @@ window.addEventListener("load", function(){
   nameSpace.js.Items = {};
   nameSpace.js.Entitys = {};
   nameSpace.js.Terreno = {};
-  let clasesExtendB = [];
   clasesJS.forEach(function (RelaPath, claseJS) {
     if(RelaPath.endsWith("/")) return;
     claseJS.async("string").then(function (claseJSstr) {
@@ -98,6 +98,7 @@ window.addEventListener("load", function(){
   for(let cEB of clasesExtendB){
     cEB();
   }
+  delete clasesExtendB;
   $("#LoaderBar").prop("value", "100");
   $("#Loader").fadeOut();
   startGameWorld();
