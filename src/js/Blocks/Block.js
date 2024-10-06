@@ -11,7 +11,7 @@ nameSpace.js.Blocks.Block = class {
     }
     remove(){
         this.blockElement.remove();
-        //world modify
+        delete this.world.blocks[this.x][this.y];
     }
     getTexture(){
         return "";
@@ -20,6 +20,6 @@ nameSpace.js.Blocks.Block = class {
         return false;
     }
     toItem(){
-        return new nameSpace.js.Blocks.Items.Item();
+        return new nameSpace.js.Items.Item();
     }
 };

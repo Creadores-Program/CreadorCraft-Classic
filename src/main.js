@@ -7,7 +7,7 @@ var textures = {};
 var daycycle1;
 window.addEventListener("load", function(){
   $("#LoaderBar").prop("value", "100");
-  $("#LoaderBar").html("Loading Textures...");
+  $("#LoaderTxt").html("Loading Textures...");
   $("#LoaderBar").prop("value", "0");
   let textures = GameProps.getFileGame().folder("textures");
   let valP = 0;
@@ -51,8 +51,17 @@ window.addEventListener("load", function(){
         case "Blocks/MesaDeCraft.png":
           $(".mesaDeCraftBlock, .mesaDeCraft").css("background-image", 'url("'+TexturUrl+'")');
           break;
+        case "Blocks/Cesped.png":
+          $(".cespedBlock, .cesped").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/Piedra.png":
+          $(".piedraBlock, .piedra").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/Arena.png":
+          $(".arenaBlock, .arena").css("background-image", 'url("'+TexturUrl+'")');
+          break;
       }
-      textures[RelaPath.replaceAll("/", "-")] = TexturUrl;
+      textures[RelaPath.trim().replaceAll("/", "-").replaceAll(".png", "")] = TexturUrl;
     }).catch(function(err){
       alert("Error al Cargar Texturas\nJuego Dañado!\n\nError Loading Textures!\nGame Corrupted!");
       throw err;
@@ -61,10 +70,10 @@ window.addEventListener("load", function(){
   let clasesJS = GameProps.getFileGame().folder("js");
   valP = 0;
   $("#LoaderBar").prop("value", valP);
-  $("#LoaderBar").html("Loading Resources...");
+  $("#LoaderTxt").html("Loading Resources...");
   nameSpace.js = {};
   nameSpace.js.Blocks = {};
-  nameSpace.js.Blocks.Items = {};
+  nameSpace.js.Items = {};
   nameSpace.js.Entitys = {};
   nameSpace.js.Terreno = {};
   let clasesExtendB = [];
@@ -75,11 +84,16 @@ window.addEventListener("load", function(){
       $("#LoaderBar").prop("value", valP);
       let execC = new Function(claseJSstr);
       execC();
+    }).catch(function(err){
+      alert("Error al Cargar Recursos\nJuego Dañado!\n\nError Loading Resources!\nGame Corrupted!");
+      throw err;
     });
   });
   for(let cEB of clasesExtendB){
     cEB();
   }
+  $("#LoaderBar").prop("value", "100");
+  $("#Loader").fadeOut();
   startGameWorld();
 });
 
