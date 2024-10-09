@@ -67,6 +67,21 @@ window.addEventListener("load", function(){
         case "Blocks/Hojas.png":
           $(".hojasBlock, .hojas").css("background-image", 'url("'+TexturUrl+'")');
           break;
+        case "Blocks/Oro.png":
+          $(".oroBlock").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/Hierro.png":
+          $(".hierroBlock").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/Ruby.png":
+          $(".rubyBlock").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/Carbon.png":
+          $(".carbonBlock").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Blocks/Diamante.png":
+          $(".diamanteBlock").css("background-image", 'url("'+TexturUrl+'")');
+          break;
       }
       textures[RelaPath.trim().replaceAll("/", "_").replaceAll(".png", "")] = TexturUrl;
     }).catch(function(err){

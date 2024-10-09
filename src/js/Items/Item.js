@@ -17,7 +17,7 @@ nameSpace.js.Items.Item = class{
     }
     remove(){
         this.itemElement.remove();
-        delete this.player.inventary[this.slot];
+        //delete this.player.inventary[this.slot];
     }
     toBlock(x, y, world){
         return new nameSpace.js.Blocks.Block(x, y, world);
