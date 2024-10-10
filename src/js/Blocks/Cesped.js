@@ -12,6 +12,9 @@ function registerC(){
         isBreak(){
             return true;
         }
+        toItem(player, slot){
+            return new nameSpace.js.Items.Cesped(player, slot);
+        }
     };
 }
 clasesExtendB[clasesExtendB.length] = registerC;
