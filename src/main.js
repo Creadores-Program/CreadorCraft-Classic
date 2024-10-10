@@ -82,6 +82,12 @@ window.addEventListener("load", function(){
         case "Blocks/Diamante.png":
           $(".diamanteBlock").css("background-image", 'url("'+TexturUrl+'")');
           break;
+        case "Items/Palo.png":
+          $(".palo").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Items/Oro.png":
+          $(".oro").css("background-image", 'url("'+TexturUrl+'")');
+          break;
       }
       textures[RelaPath.trim().replaceAll("/", "_").replaceAll(".png", "")] = TexturUrl;
     }).catch(function(err){
