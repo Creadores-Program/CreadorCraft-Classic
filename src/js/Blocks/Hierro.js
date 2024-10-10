@@ -12,6 +12,9 @@ function registerC(){
         isBreak(){
             return true;
         }
+        toItem(player, slot){
+            return new nameSpace.js.Items.Hierro(player, slot);
+        }
     };
 }
 clasesExtendB[clasesExtendB.length] = registerC;

@@ -5,7 +5,7 @@ nameSpace.js.Blocks.Block = class {
     constructor(x, y, world) {
         this.x = x;
         this.y = y;
-        this.blockElement = terrain.createElement("div");
+        this.blockElement = document.createElement("div");
         this.blockElement.classList.add("Block");
         this.world = world;
     }

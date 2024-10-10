@@ -88,6 +88,18 @@ window.addEventListener("load", function(){
         case "Items/Oro.png":
           $(".oro").css("background-image", 'url("'+TexturUrl+'")');
           break;
+        case "Items/Hierro.png":
+          $(".hierro").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Items/Carbon.png":
+          $(".carbon").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Items/Diamante.png":
+          $(".diamante").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Items/Ruby.png":
+          $(".ruby").css("background-image", 'url("'+TexturUrl+'")');
+          break;
       }
       textures[RelaPath.trim().replaceAll("/", "_").replaceAll(".png", "")] = TexturUrl;
     }).catch(function(err){
