@@ -7,16 +7,45 @@ nameSpace.js.Entitys.Entity = class{
         this.x = x;
         this.y = y;
         this.world = world;
+        this.world.entitys[this.x] = (this.world.entitys[this.x] || {});
         this.entityElement = document.createElement("div");
-        this.blockElement.classList.add("Entity");
+        this.entityElement.classList.add("Entity");
+    }
+    addEntityToWorld(iD){
+        this.world.entitys[this.x][this.y] = iD;
+        this.entityElement.classList.add(iD);
     }
     kill(){
         $(this.entityElement).fadeOut();
         this.entityElement.remove();
-        delete this.world.entitys[this.x][this.y]
+        delete this.world.entitys[this.x][this.y];
     }
     getTexture(){
         return "";
+    }
+    getTextureJump(){
+        return "";
+    }
+    getTextureStep(){
+        return "";
+    }
+    tp(x, y){
+        //code..
+    }
+    move(x, y){
+        //code
+    }
+    jump(){
+        //code
+    }
+    rotateD(){
+        $(this.entityElement).css("transform", "scaleX(1)");
+    }
+    rotateI(){
+        $(this.entityElement).css("transform", "scaleX(-1)");
+    }
+    isPlayer(){
+        return this instanceof nameSpace.js.Entitys.Player;
     }
     damage(vidD){
         this.vid -= vidD;

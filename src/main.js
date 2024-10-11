@@ -22,6 +22,15 @@ window.addEventListener("load", function(){
       });
       let TexturUrl = URL.createObjectURL(TexturBlob);
       switch(RelaPath){
+        case "Controls/BackBtn.png":
+          $("#backControlBtn").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Controls/ForwardBtn.png":
+          $("#forwardControlBtn").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Controls/JumpBtn.png":
+          $("#jumpButtonBtn").css("background-image", 'url("'+TexturUrl+'")');
+          break;
         case "Clouds.png":
           $(".clouds, .clouds1, .clouds2, .clouds3, .clouds4, .clouds5").css("background-image", 'url("'+TexturUrl+'")');
           break;

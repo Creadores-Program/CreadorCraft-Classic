@@ -4,7 +4,7 @@ function registerC(){
         static resistencia = 15500;
         constructor(x, y, world){
             super(x, y, world);
-            this.blockElement.classList.add(nameSpace.js.Blocks.Carbon.id);
+            this.addBlockToWorld(nameSpace.js.Blocks.Carbon.id);
         }
         getTexture(){
             return textures.Blocks_Carbon;

@@ -318,6 +318,10 @@
           left: 0%;
           z-index: 1000;
 }
+#backControlBtn, #forwardControlBtn, #jumpButtonBtn{
+  width: 65px;
+  height: 65px;
+}
 .Block{
   position: fixed;
   display: block;

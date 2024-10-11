@@ -8,6 +8,11 @@ nameSpace.js.Blocks.Block = class {
         this.blockElement = document.createElement("div");
         this.blockElement.classList.add("Block");
         this.world = world;
+        this.world.blocks[this.x] = (this.world.blocks[this.x] || {});
+    }
+    addBlockToWorld(iD){
+        this.world.blocks[this.x][this.y] = iD;
+        this.blockElement.classList.add(iD);
     }
     remove(){
         this.blockElement.remove();

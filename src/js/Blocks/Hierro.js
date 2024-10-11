@@ -4,7 +4,7 @@ function registerC(){
         static resistencia = 16000;
         constructor(x, y, world){
             super(x, y, world);
-            this.blockElement.classList.add(nameSpace.js.Blocks.Hierro.id);
+            this.addBlockToWorld(nameSpace.js.Blocks.Hierro.id);
         }
         getTexture(){
             return textures.Blocks_Hierro;

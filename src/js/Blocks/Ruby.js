@@ -4,7 +4,7 @@ function registerC(){
         static resistencia = 20000;
         constructor(x, y, world){
             super(x, y, world);
-            this.blockElement.classList.add(nameSpace.js.Blocks.Ruby.id);
+            this.addBlockToWorld(nameSpace.js.Blocks.Ruby.id);
         }
         getTexture(){
             return textures.Blocks_Ruby;
