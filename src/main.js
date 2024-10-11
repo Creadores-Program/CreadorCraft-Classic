@@ -109,6 +109,12 @@ window.addEventListener("load", function(){
         case "Items/Ruby.png":
           $(".ruby").css("background-image", 'url("'+TexturUrl+'")');
           break;
+        case "Items/Lantano.png":
+          $(".lantano").css("background-image", 'url("'+TexturUrl+'")');
+          break;
+        case "Items/Changesita.png":
+          $(".changesita").css("background-image", 'url("'+TexturUrl+'")');
+          break;
       }
       textures[RelaPath.trim().replaceAll("/", "_").replaceAll(".png", "")] = TexturUrl;
     }).catch(function(err){
