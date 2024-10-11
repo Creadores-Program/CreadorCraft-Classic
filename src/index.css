@@ -321,6 +321,8 @@
 #backControlBtn, #forwardControlBtn, #jumpButtonBtn{
   width: 65px;
   height: 65px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .Block{
   position: fixed;

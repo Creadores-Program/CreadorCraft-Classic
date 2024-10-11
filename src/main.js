@@ -153,8 +153,8 @@ function weatherCycleInit() {
           var weaterStop = Math.random() * (23 - 1) + 1;
           if (hours2 >= weatherStart && hours2 < weaterStop) {
             clearInterval(daycycle1);
-            moon.style.visibility = "hidden";
-            sun.style.visibility = "hidden";
+            moonGame.style.visibility = "hidden";
+            sunGame.style.visibility = "hidden";
             $(".clouds").hide();
             $(".clouds1").hide();
             $(".clouds2").hide();
@@ -186,9 +186,9 @@ function weatherCycleInit() {
               let time = 1 * Math.random();
             while (randomdrop <= 80){
               var dropsd = document.createElement('drops');
-              drops.style.animationDuration = time + 's';
-              drops.style.animationDelay = time + 's';
-              drops.style.left = x + 'px';
+              dropsd.style.animationDuration = time + 's';
+              dropsd.style.animationDelay = time + 's';
+              dropsd.style.left = x + 'px';
               dropsfond.appendChild(dropsd);
               randomdrop++;
               }
