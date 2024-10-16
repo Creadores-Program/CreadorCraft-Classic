@@ -1,3 +1,9 @@
 nameSpace.js.Terreno.EstructurasYPop.Structure = class{
-    constructor(){}
+    ySize = -1;
+    xSize = -1;
+    constructor(world, xInicio, yInicio){
+    }
+    static isEnterrado(){
+        return false;
+    }
 };

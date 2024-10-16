@@ -1,6 +1,7 @@
 nameSpace.js.Terreno.Biomes.Biome = class{
     subBiomeId = "null";
     static biomesIds = ["nevado", "normal", "desierto", "oceano", "FortalezaFin"];
+    StructureAviable = [];
     constructor(xMin, xMax, world, subBiome){
         this.world = world;
         this.xMin = xMin;
@@ -8,8 +9,19 @@ nameSpace.js.Terreno.Biomes.Biome = class{
         this.subBiomeId = (subBiome || nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni.SubBiomesIds[Math.floor(Math.random() * nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni.SubBiomesIds.length)] || "normal");
         this.subBiome = nameSpace.js.Terreno.Biomes.Biome.getSubBiomeById(this.subBiomeId);
     }
+    generateTerrain(){
+    }
     static getSubBiomeById(id){
-        switch(id){}
+        switch(id){
+            case nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni.subBiomesIds[0]:
+                return new nameSpace.js.Terreno.SubBiomesUni.Montaña();
+            case nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni.subBiomesIds[1]:
+                return new nameSpace.js.Terreno.SubBiomesUni.Normal();
+            case nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni.subBiomesIds[2]:
+                return new nameSpace.js.Terreno.SubBiomesUni.Cuevas();
+            case nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni.subBiomesIds[3]:
+                return new nameSpace.js.Terreno.SubBiomesUni.Arbol();
+        }
     }
     static getBiomeById(id, xMin, xMax, world, subBiome){
         switch(id){
