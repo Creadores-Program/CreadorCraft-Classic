@@ -7,7 +7,6 @@ nameSpace.js.Items.Item = class{
         this.slot = slot;
         this.itemElement = inventary.createElement("div");
         this.itemElement.classList.add("Item");
-        this.player.addItem(this);
     }
     getTexture(){
         return "";
@@ -17,9 +16,18 @@ nameSpace.js.Items.Item = class{
     }
     remove(){
         this.itemElement.remove();
-        //delete this.player.inventary[this.slot];
+        this.player.removeItem(this, this.slot);
     }
     toBlock(x, y, world){
         return new nameSpace.js.Blocks.Block(x, y, world);
+    }
+    isComestible(){
+        return false;
+    }
+    getFoodL(){
+        return -1;
+    }
+    getHidratL(){
+        return -1;
     }
 };

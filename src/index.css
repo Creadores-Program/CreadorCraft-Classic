@@ -300,14 +300,14 @@
           left: 0%;
           z-index: 5;
         }
-        #playerMax {
-          position: absolute;
-          bottom: 0;
-          width: 1px;
-          background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEis-v4-aqN7jy6rtzb6_wvAnl_PI-nsaTl2myHxjXlI8iaYvRhPIPOxpCHRB3S8DCVCr3yG-A_6lzO6bPAiuok_fDP8neudY61L6DGFfTWhaP_ozdPYxDFu3opJUOIqAp9epS5GOrL9XXV82LtpCLg-kl1dbaFSABwZy3_CJP2xn8m9kLeGuCbbc4jnbg/s256/2023-02-23_22.01.27.png");
+        .Entity{
+          position: fixed;
+          display: block;
+          margin: auto;
+          width: 60px;
+          height: 120px;
           background-size: contain;
           background-repeat: no-repeat;
-          z-index: 6;
         }
 .gameControl {
           position: fixed;
@@ -347,4 +347,23 @@
   top: 0%;
   width: 100%;
   height: 100%;
+}
+#killScreen{
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 9999;
+}
+#killScreenText{
+  color: red;
+  font-size: 2em;
+}
+#Respawn{
+  background-color: aqua;
+}
+button{
+  border-radius: 10px;
 }

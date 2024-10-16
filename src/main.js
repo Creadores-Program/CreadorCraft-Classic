@@ -1,10 +1,11 @@
 $("#world1Level").hide();
 $("#gameControl").hide();
+$("#killScreen").hide();
 $("#Loader").hide();
 $("#Loader").fadeIn();
 var nameSpace = {};
 var textures = {};
-var daycycle1;
+var daycycle;
 var clasesExtendB = [];
 window.addEventListener("load", function(){
   $("#LoaderBar").prop("value", "100");
@@ -130,7 +131,14 @@ window.addEventListener("load", function(){
   nameSpace.js.Blocks = {};
   nameSpace.js.Items = {};
   nameSpace.js.Entitys = {};
+  nameSpace.js.Entitys.Ostil = {};
+  nameSpace.js.Entitys.Pasive = {};
+  nameSpace.js.Entitys.Controlable = {};
   nameSpace.js.Terreno = {};
+  nameSpace.js.Terreno.Biomes = {};
+  nameSpace.js.Terreno.SubBiomesUni = {};
+  nameSpace.js.Terreno.Ambient = {};
+  nameSpace.js.Terreno.EstructurasYPop = {};
   clasesJS.forEach(function (RelaPath, claseJS) {
     if(RelaPath.endsWith("/")) return;
     claseJS.async("string").then(function (claseJSstr) {
@@ -152,134 +160,6 @@ window.addEventListener("load", function(){
   startGameWorld();
 });
 
-function weatherCycleInit() {
-          let date = new Date();
-          var hours2 = date.getHours();
-          var weatherStart = Math.random() * (23 - 0) + 0;
-          var weaterStop = Math.random() * (23 - 1) + 1;
-          if (hours2 >= weatherStart && hours2 < weaterStop) {
-            clearInterval(daycycle1);
-            moonGame.style.visibility = "hidden";
-            sunGame.style.visibility = "hidden";
-            $(".clouds").hide();
-            $(".clouds1").hide();
-            $(".clouds2").hide();
-            $(".clouds3").hide();
-            $(".clouds4").hide();
-            $(".clouds5").hide();
-            $(".cloudsN").hide();
-            $(".cloudsN1").hide();
-            $(".cloudsN2").hide();
-            $(".cloudsN3").hide();
-            $(".cloudsN4").hide();
-            $(".cloudsN5").hide();
-            $("#starsGame").hide();
-            $(".cloudsW").show();
-            $(".cloudsW1").show();
-            $(".cloudsW2").show();
-            $(".cloudsW3").show();
-            $(".cloudsW4").show();
-            $(".cloudsW5").show();
-            document.body.style.backgroundColor = '#6D6968';
-            setTimeout(function() {
-              document.querySelector(".lightning").style.display = 'block';
-              }, Math.random() * 5000);
-            $('.dropsbackground').show();
-            var dropsfond = document.querySelector(".dropsbackground");
-            const rain = ()=> {
-            let randomdrop = 0;
-              let x = innerWidth * Math.random();
-              let time = 1 * Math.random();
-            while (randomdrop <= 80){
-              var dropsd = document.createElement('drops');
-              dropsd.style.animationDuration = time + 's';
-              dropsd.style.animationDelay = time + 's';
-              dropsd.style.left = x + 'px';
-              dropsfond.appendChild(dropsd);
-              randomdrop++;
-              }
-            }
-            rain();
-          }else{
-            daycycle();
-            daycycle1 = setInterval(daycycle, 1000 * 60);
-            $('.dropsbackground').hide();
-            $('.lightning').hide();
-            clearTimeout(function() {
-              document.querySelector(".lightning").style.display = 'block';
-              }, Math.random() * 5000);
-          }
-        }
-function daycycle() {
-          var date = new Date();
-          var hours = date.getMinutes();
-          var sun = document.getElementById("sunGame");
-          var moon = document.getElementById("moonGame");
-          if (hours >= 0 && hours < 30) {
-            document.body.style.backgroundColor = '#00FFFF';
-            moon.style.visibility = "hidden";
-            sun.style.visibility = "visible";
-            $(".clouds").show();
-            $(".clouds1").show();
-            $(".clouds2").show();
-            $(".clouds3").show();
-            $(".clouds4").show();
-            $(".clouds5").show();
-            $(".cloudsN").hide();
-            $(".cloudsN1").hide();
-            $(".cloudsN2").hide();
-            $(".cloudsN3").hide();
-            $(".cloudsN4").hide();
-            $(".cloudsN5").hide();
-            $("#starsGame").hide();
-            $(".cloudsW").hide();
-            $(".cloudsW1").hide();
-            $(".cloudsW2").hide();
-            $(".cloudsW3").hide();
-            $(".cloudsW4").hide();
-            $(".cloudsW5").hide();
-            var sunPosition = ((hours / 60) * 100).toFixed(2);
-            sun.style.left = sunPosition + "%";
-            
-          } else {
-            document.body.style.backgroundColor = '#0C090A';
-            sun.style.visibility = "hidden";
-            moon.style.visibility = "visible";
-            $(".clouds").hide();
-            $(".clouds1").hide();
-            $(".clouds2").hide();
-            $(".clouds3").hide();
-            $(".clouds4").hide();
-            $(".clouds5").hide();
-            $(".cloudsW").hide();
-            $(".cloudsW1").hide();
-            $(".cloudsW2").hide();
-            $(".cloudsW3").hide();
-            $(".cloudsW4").hide();
-            $(".cloudsW5").hide();
-            $(".cloudsN").show();
-            $(".cloudsN1").show();
-            $(".cloudsN2").show();
-            $(".cloudsN3").show();
-            $(".cloudsN4").show();
-            $(".cloudsN5").show();
-            $("#starsGame").show();
-            $(".starsGame").show();
-            var moonPosition = ((hours / 60) * 100).toFixed(2);
-            moon.style.right = moonPosition + "%";
-            }
-          }
 function startGameWorld() {
-          GameProps.getClickStartSound().play();
-          $("html, body").css("overflow-y", "hidden");
-          $("html, body").css("overflow-x", "hidden");
-          $("#stopGameMusicBtn").show();
-          GameProps.getGameMusic().play();
-          daycycle();
-          daycycle1 = setInterval(daycycle, 1000 * 60);
-            weatherCycleInit();
-            setInterval(weatherCycleInit, 2000 * 120);
-            var terrainGeneration = document.getElementById("terrain");
-            var playerMax = document.getElementById("playerMax");
-            var collisionP = false;
-        }
+  $("#stopGameMusicBtn").show();
+}
