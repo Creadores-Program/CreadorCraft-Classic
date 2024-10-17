@@ -7,6 +7,7 @@ var nameSpace = {};
 var textures = {};
 var daycycle;
 var clasesExtendB = [];
+var verifyResour;
 window.addEventListener("load", function(){
   $("#LoaderBar").prop("value", "100");
   $("#LoaderTxt").html("Loading Textures...");
@@ -151,15 +152,30 @@ window.addEventListener("load", function(){
       throw err;
     });
   });
-  for(let cEB of clasesExtendB){
-    cEB();
+  valP = 0;
+  $("#LoaderBar").prop("value", valP);
+  $("#LoaderTxt").html("Checking Resources...");
+  function terminarLoad(){
+    for(let cEB of clasesExtendB){
+      cEB();
+    }
+    clasesExtendB = [];
+    if(valP > 100) valP = 0;
+    $("#LoaderBar").prop("value", valP);
+    valP++;
+    if(Object.keys(nameSpace.js.Blocks).length < 13) return;
+    if(Object.keys(nameSpace.js.Items).length < 16) return;
+    if(nameSpace.js.Terreno.Generador == null || Object.keys(nameSpace.js.Terreno.Ambient).length < 2 || Object.keys(nameSpace.js.Terreno.Biomes).length < 1 || Object.keys(nameSpace.js.EstructurasYPop).length < 1 || Object.keys(nameSpace.js.SubBiomesUni).length < 1) return;
+    if(Object.keys(nameSpace.js.Entitys.Controlable).length < 1 || nameSpace.js.Entitys.Entity == null) return;
+    $("#LoaderBar").prop("value", "100");
+    clearInterval(verifyResour);
+    delete clasesExtendB;
+    delete verifyResour;
+    $("#Loader").fadeOut();
+    startGameWorld();
   }
-  delete clasesExtendB;
-  $("#LoaderBar").prop("value", "100");
-  $("#Loader").fadeOut();
-  startGameWorld();
+  verifyResour = setInterval(terminarLoad, 0);
 });
-
 function startGameWorld() {
   $("#stopGameMusicBtn").show();
 }
