@@ -1,6 +1,6 @@
 function registerC(){
     nameSpace.js.Items.Lantano = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Itemss.Item.idItems[7];
+        static id = nameSpace.js.Items.Item.idItems[7];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);

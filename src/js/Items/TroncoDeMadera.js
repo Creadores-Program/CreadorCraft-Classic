@@ -1,6 +1,6 @@
 function registerC(){
     nameSpace.js.Items.TroncoDeMadera = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Itemss.Item.idItems[11];
+        static id = nameSpace.js.Items.Item.idItems[11];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);

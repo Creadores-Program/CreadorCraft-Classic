@@ -1,6 +1,6 @@
 function registerC(){
     nameSpace.js.Items.Ruby = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Itemss.Item.idItems[4];
+        static id = nameSpace.js.Items.Item.idItems[4];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);

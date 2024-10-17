@@ -1,6 +1,6 @@
 function registerC(){
     nameSpace.js.Items.Changesita = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Itemss.Item.idItems[8];
+        static id = nameSpace.js.Items.Item.idItems[8];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
