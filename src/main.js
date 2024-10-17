@@ -166,7 +166,7 @@ window.addEventListener("load", function(){
     clasesExtendB = [];
     if(Object.keys(nameSpace.js.Blocks).length < 13) return;
     if(Object.keys(nameSpace.js.Items).length < 16) return;
-    if(Object.keys(nameSpace.js.Terreno.Ambient).length < 2 || Object.keys(nameSpace.js.Terreno.Biomes).length < 1 || Object.keys(nameSpace.js.EstructurasYPop).length < 1 || Object.keys(nameSpace.js.SubBiomesUni).length < 1) return;
+    if(Object.keys(nameSpace.js.Terreno.Ambient).length < 2 || Object.keys(nameSpace.js.Terreno.Biomes).length < 1 || Object.keys(nameSpace.js.Terreno.EstructurasYPop).length < 1 || Object.keys(nameSpace.js.Terreno.SubBiomesUni).length < 1) return;
     if(Object.keys(nameSpace.js.Entitys.Controlable).length < 1) return;
     $("#LoaderBar").prop("value", "100");
     clearInterval(verifyResour);

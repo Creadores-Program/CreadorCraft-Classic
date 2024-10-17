@@ -79,7 +79,7 @@ nameSpace.js.Terreno.Generador = class {
             }else{
                 coordFinalX = parseInt(posPlayerWX);
             }
-            if(this.world.blocks[coordFinalX] == null || this.world.blocks[coordFinalX] == {}){
+            if(this.world.blocks[coordFinalX] == null || Object.keys(this.world.blocks[coordFinalX]).length == 0){
                 if(this.blocksScreen[x] != null && this.blocksScreen[x] != {}){
                     for(let blockNX of Object.keys(this.blocksScreen[x])){
                         this.blocksScreen[x][blockNX].blockElement.remove();
@@ -130,7 +130,7 @@ nameSpace.js.Terreno.Generador = class {
                 }else{
                     xFinal = parseFloat(posPlayerWX);
                 }
-                if(this.world.entitys[xFinal] == null || this.world.entitys[xFinal] == {}){
+                if(this.world.entitys[xFinal] == null || Object.keys(this.world.entitys[xFinal]).length == 0){
                     if(this.entitysScreen[xFinalS] != null && this.entitysScreen[xFinalS] != {}){
                         for(let entityNY of Object.keys(this.entitysScreen[xFinalS])){
                             for(let entityNID of Object.keys(this.entitysScreen[xFinalS][entityNY])){
@@ -153,7 +153,7 @@ nameSpace.js.Terreno.Generador = class {
                         }else{
                             yFinal = parseFloat(posPlayerWY);
                         }
-                        if(this.world.entitys[xFinal][yFinal] == null || this.world.entitys[xFinal][yFinal] == {}){
+                        if(this.world.entitys[xFinal][yFinal] == null || Object.keys(this.world.entitys[xFinal][yFinal]).length == 0){
                             if(this.entitysScreen[xFinalS][yFinalS] != null && this.entitysScreen[xFinalS][yFinalS] != {}){
                                 for(let entityNID of Object.keys(this.entitysScreen[xFinalS][yFinalS])){
                                     this.entitysScreen[xFinalS][yFinalS][entityNID].entityElement.remove();
