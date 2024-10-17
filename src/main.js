@@ -156,10 +156,6 @@ window.addEventListener("load", function(){
   $("#LoaderBar").prop("value", valP);
   $("#LoaderTxt").html("Checking Resources...");
   function terminarLoad(){
-    for(let cEB of clasesExtendB){
-      cEB();
-    }
-    clasesExtendB = [];
     if(valP > 100) valP = 0;
     $("#LoaderBar").prop("value", valP);
     valP++;
@@ -169,6 +165,9 @@ window.addEventListener("load", function(){
     if(Object.keys(nameSpace.js.Entitys.Controlable).length < 1 || nameSpace.js.Entitys.Entity == null) return;
     $("#LoaderBar").prop("value", "100");
     clearInterval(verifyResour);
+    for(let cEB of clasesExtendB){
+      cEB();
+    }
     delete clasesExtendB;
     delete verifyResour;
     $("#Loader").fadeOut();
