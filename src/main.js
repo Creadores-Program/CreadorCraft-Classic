@@ -178,5 +178,10 @@ window.addEventListener("load", function(){
   verifyResour = setInterval(terminarLoad, 0);
 });
 function startGameWorld() {
+  if(GameProps.getStorage().get("data") == null){
+    let jsonDataTemp = {};
+    jsonDataTemp.worlds = [];
+    GameProps.getStorage().set("data", JSON.stringify(jsonDataTemp));
+  }
   $("#stopGameMusicBtn").show();
 }
