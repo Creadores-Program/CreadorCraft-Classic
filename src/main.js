@@ -159,15 +159,17 @@ window.addEventListener("load", function(){
     if(valP > 100) valP = 0;
     $("#LoaderBar").prop("value", valP);
     valP++;
-    if(Object.keys(nameSpace.js.Blocks).length < 13) return;
-    if(Object.keys(nameSpace.js.Items).length < 16) return;
-    if(nameSpace.js.Terreno.Generador == null || Object.keys(nameSpace.js.Terreno.Ambient).length < 2 || Object.keys(nameSpace.js.Terreno.Biomes).length < 1 || Object.keys(nameSpace.js.EstructurasYPop).length < 1 || Object.keys(nameSpace.js.SubBiomesUni).length < 1) return;
-    if(Object.keys(nameSpace.js.Entitys.Controlable).length < 1 || nameSpace.js.Entitys.Entity == null) return;
-    $("#LoaderBar").prop("value", "100");
-    clearInterval(verifyResour);
+    if(nameSpace.js.Blocks.Block == null || nameSpace.js.Entitys.Entity == null || nameSpace.js.Terreno.Generador == null || nameSpace.js.Items.Item == null || nameSpace.js.Terreno.Biomes.Biome == null || nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni == null || nameSpace.js.Terreno.EstructurasYPop.Structure == null) return;
     for(let cEB of clasesExtendB){
       cEB();
     }
+    clasesExtendB = [];
+    if(Object.keys(nameSpace.js.Blocks).length < 13) return;
+    if(Object.keys(nameSpace.js.Items).length < 16) return;
+    if(Object.keys(nameSpace.js.Terreno.Ambient).length < 2 || Object.keys(nameSpace.js.Terreno.Biomes).length < 1 || Object.keys(nameSpace.js.EstructurasYPop).length < 1 || Object.keys(nameSpace.js.SubBiomesUni).length < 1) return;
+    if(Object.keys(nameSpace.js.Entitys.Controlable).length < 1) return;
+    $("#LoaderBar").prop("value", "100");
+    clearInterval(verifyResour);
     delete clasesExtendB;
     delete verifyResour;
     $("#Loader").fadeOut();
