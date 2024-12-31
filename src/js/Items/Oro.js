@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Items.Oro = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[6];
+const Item = require('./Item.js');
+const BlockO = require('../Blocks/Oro.js');
+class Oro extends Item{
+        static id = Item.idItems[6];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.Oro.id);
+            this.itemElement.classList.add(Oro.id);
         }
         getTexture(){
             return textures.Items_Oro;
@@ -13,8 +14,10 @@ function registerC(){
             return false;
         }
         toBlock(x, y, world){
-            return new nameSpace.js.Blocks.Oro(x, y, world);
+            return new BlockO(x, y, world);
         }
-    };
+        getClass(){
+            return Oro;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Oro;

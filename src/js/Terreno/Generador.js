@@ -1,9 +1,29 @@
-nameSpace.js.Terreno.Generador = class {
+const Player = require("../Entitys/Controlable/Player.js");
+const Day = require("./Ambient/Day.js");
+const Weather = require("./Ambient/Weather.js");
+const Block = require("../Blocks/Block.js");
+const Entity = require("../Entitys/Entity.js");
+const BlockTierra = require("../Blocks/Tierra.js");
+const BlockMesaDeCraft = require("../Blocks/MesaDeCraft.js");
+const BlockHierro = require("../Blocks/Hierro.js");
+const BlockRuby = require("../Blocks/Ruby.js");
+const BlockCarbon = require("../Blocks/Carbon.js");
+const BlockDiamante = require("../Blocks/Diamante.js");
+const BlockOro = require("../Blocks/Oro.js");
+const BlockHojas = require("../Blocks/Hojas.js");
+const BlockTroncoDeMadera = require("../Blocks/TroncoDeMadera.js");
+const BlockArena = require("../Blocks/Arena.js");
+const BlockPiedra = require("../Blocks/Piedra.js");
+const BlockCesped = require("../Blocks/Cesped.js");
+const EntityTryhardero = require("../Entitys/Ostil/Tryhardero.js");
+const EntityZombie = require("../Entitys/Ostil/Zombie.js");
+const EntityDelfin = require("../Entitys/Pasive/Delfin.js");
+class Generador{
     blocksScreen = {};
     entitysScreen = {};
     constructor(worldJson, id){
         this.world = worldJson;
-        this.player = new nameSpace.js.Entitys.Controlable.Player(this.world.player.coords[0], this.world.player.coords[1], this.world, this.world.player.vida);
+        this.player = new Player(this.world.player.coords[0], this.world.player.coords[1], this.world, this.world.player.vida);
         this.player.food = this.world.player.food;
         this.player.hidrata = this.world.player.hidrata;
         this.player.attak = this.world.player.attak;
@@ -17,8 +37,8 @@ nameSpace.js.Terreno.Generador = class {
         Respawn.addEventListener("click", this.player.respawn.bind(this.player));
         $("html, body").css("overflow-y", "hidden");
         $("html, body").css("overflow-x", "hidden");
-        this.day = new nameSpace.js.Terreno.Ambient.Day();
-        this.weather = new nameSpace.js.Terreno.Ambient.Weather(this);
+        this.day = new Day();
+        this.weather = new Weather(this);
         GameProps.getGameMusic().play();
         $("#Loader").fadeOut();
     }
@@ -26,12 +46,12 @@ nameSpace.js.Terreno.Generador = class {
         let worldCache = {};
         worldCache.player = {};
         worldCache.player.coords = [0.0, 0.0];
-        worldCache.player.vida = nameSpace.js.Entitys.Controlable.Player.vidaDef;
-        worldCache.player.food = nameSpace.js.Entitys.Controlable.Player.foodDef;
-        worldCache.player.hidrata = nameSpace.js.Entitys.Controlable.Player.hidrataDef;
-        worldCache.player.attak = nameSpace.js.Entitys.Controlable.Player.attakDef;
-        worldCache.player.velocity = nameSpace.js.Entitys.Controlable.Player.velocityDef;
-        worldCache.player.velocitySpeed = nameSpace.js.Entitys.Controlable.Player.velocitySpeedDef;
+        worldCache.player.vida = Player.vidaDef;
+        worldCache.player.food = Player.foodDef;
+        worldCache.player.hidrata = Player.hidrataDef;
+        worldCache.player.attak = Player.attakDef;
+        worldCache.player.velocity = Player.velocityDef;
+        worldCache.player.velocitySpeed = Player.velocitySpeedDef;
         worldCache.player.calor = 0;
         worldCache.player.freez = 0;
         worldCache.player.protect = 0;
@@ -47,10 +67,10 @@ nameSpace.js.Terreno.Generador = class {
         };
         GameProps.getStorage().set("data", JSON.stringify(dataG));
         GameProps.getStorage().set(id, JSON.stringify(worldCache));
-        return new nameSpace.js.Terreno.Generador(worldCache, id);
+        return new Generador(worldCache, id);
     }
     static genWorld(id){
-        return new nameSpace.js.Terreno.Generador(JSON.parse(GameProps.getStorage().get(id)), id);
+        return new Generador(JSON.parse(GameProps.getStorage().get(id)), id);
     }
     static deleteWorld(id){
         GameProps.getStorage().delete(id);
@@ -105,8 +125,8 @@ nameSpace.js.Terreno.Generador = class {
                     }
                     continue;
                 }
-                if(this.blocksScreen[x][y] != null && this.blocksScreen[x][y].constructor === this.convertBlockById(this.world.blocks[coordFinalX][coordFinalY]).constructor) continue;
-                if(this.blocksScreen[x][y] != null && this.blocksScreen[x][y].constructor !== this.convertBlockById(this.world.blocks[coordFinalX][coordFinalY]).constructor){
+                if(this.blocksScreen[x][y] != null && this.blocksScreen[x][y].getClass() == this.convertBlockById(this.world.blocks[coordFinalX][coordFinalY]).getClass()) continue;
+                if(this.blocksScreen[x][y] != null && this.blocksScreen[x][y].getClass() != this.convertBlockById(this.world.blocks[coordFinalX][coordFinalY]).getClass()){
                     this.blocksScreen[x][y].blockElement.remove();
                     delete this.blocksScreen[x][y];
                 }
@@ -185,32 +205,32 @@ nameSpace.js.Terreno.Generador = class {
         x = (x || "CacheBX");
         y = (y || "CacheBY");
         switch(id){
-            case nameSpace.js.Blocks.Block.idBlocks[0]:
-                return new nameSpace.js.Blocks.Tierra(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[1]:
-                return new nameSpace.js.Blocks.MesaDeCraft(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[2]:
-                return new nameSpace.js.Blocks.Hierro(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[3]:
-                return new nameSpace.js.Blocks.Ruby(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[4]:
-                return new nameSpace.js.Blocks.Carbon(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[5]:
-                return new nameSpace.js.Blocks.Diamante(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[6]:
-                return new nameSpace.js.Blocks.Oro(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[7]:
-                return new nameSpace.js.Blocks.Hojas(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[8]:
-                return new nameSpace.js.Blocks.TroncoDeMadera(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[9]:
-                return new nameSpace.js.Blocks.Arena(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[10]:
-                return new nameSpace.js.Blocks.Piedra(x, y, this.world);
-            case nameSpace.js.Blocks.Block.idBlocks[11]:
-                return new nameSpace.js.Blocks.Cesped(x,y, this.world);
+            case Block.idBlocks[0]:
+                return new BlockTierra(x, y, this.world);
+            case Block.idBlocks[1]:
+                return new BlockMesaDeCraft(x, y, this.world);
+            case Block.idBlocks[2]:
+                return new BlockHierro(x, y, this.world);
+            case Block.idBlocks[3]:
+                return new BlockRuby(x, y, this.world);
+            case Block.idBlocks[4]:
+                return new BlockCarbon(x, y, this.world);
+            case Block.idBlocks[5]:
+                return new BlockDiamante(x, y, this.world);
+            case Block.idBlocks[6]:
+                return new BlockOro(x, y, this.world);
+            case Block.idBlocks[7]:
+                return new BlockHojas(x, y, this.world);
+            case Block.idBlocks[8]:
+                return new BlockTroncoDeMadera(x, y, this.world);
+            case Block.idBlocks[9]:
+                return new BlockArena(x, y, this.world);
+            case Block.idBlocks[10]:
+                return new BlockPiedra(x, y, this.world);
+            case Block.idBlocks[11]:
+                return new BlockCesped(x,y, this.world);
             default:
-                return new nameSpace.js.Blocks.Block(x, y, this.world);
+                return new Block(x, y, this.world);
         }
     }
     convertEntityById(id, vid, x, y){
@@ -218,20 +238,20 @@ nameSpace.js.Terreno.Generador = class {
         y = (y || "CacheEY");
         let EntityR;
         switch(id){
-            case nameSpace.js.Entitys.Entity.idEntitys[0]:
-                EntityR = new nameSpace.js.Entitys.Controlable.Player(x, y, this.world, vid);
+            case Entity.idEntitys[0]:
+                EntityR = new Player(x, y, this.world, vid);
                 break;
-            case nameSpace.js.Entitys.Entity.idEntitys[1]:
-                EntityR = new nameSpace.js.Entitys.Ostil.Tryhardero(x, y, this.world, vid);
+            case Entity.idEntitys[1]:
+                EntityR = new EntityTryhardero(x, y, this.world, vid);
                 break;
-            case nameSpace.js.Entitys.Entity.idEntitys[2]:
-                EntityR = new nameSpace.js.Entitys.Ostil.Zombie(x, y, this.world, vid);
+            case Entity.idEntitys[2]:
+                EntityR = new EntityZombie(x, y, this.world, vid);
                 break;
-            case nameSpace.js.Entitys.Entity.idEntitys[3]:
-                EntityR = new nameSpace.js.Entitys.Pasive.Delfin(x, y, this.world, vid);
+            case Entity.idEntitys[3]:
+                EntityR = new EntityDelfin(x, y, this.world, vid);
                 break;
             default:
-                EntityR = new nameSpace.js.Entitys.Entity(x, y, this.world, vid);
+                EntityR = new Entity(x, y, this.world, vid);
         }
         this.ClearCacheEntity();
         return EntityR;
@@ -241,4 +261,5 @@ nameSpace.js.Terreno.Generador = class {
           delete this.world.entitys["CacheEX"];
         }
     }
-};
+}
+module.exports = Generador;

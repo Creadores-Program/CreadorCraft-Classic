@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Items.Hojas = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[10];
+const Item = require('./Item.js');
+const BlockH = require('../Blocks/Hojas.js');
+class Hojas extends Item{
+        static id = Item.idItems[10];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.Hojas.id);
+            this.itemElement.classList.add(Hojas.id);
         }
         getTexture(){
             return textures.Blocks_Hojas;
@@ -13,8 +14,10 @@ function registerC(){
             return false;
         }
         toBlock(x, y, world){
-            return new nameSpace.js.Blocks.Hojas(x, y, world);
+            return new BlockH(x, y, world);
         }
-    };
+        getClass(){
+            return Hojas;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Hojas;

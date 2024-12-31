@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Blocks.Ruby = class extends nameSpace.js.Blocks.Block{
-        static id = nameSpace.js.Blocks.Block.idBlocks[3];
+const Block = require('./Block.js');
+const ItemR = require('../Items/Ruby.js');
+class Ruby extends Block{
+        static id = Block.idBlocks[3];
         static resistencia = 20000;
         constructor(x, y, world){
             super(x, y, world);
-            this.addBlockToWorld(nameSpace.js.Blocks.Ruby.id);
+            this.addBlockToWorld(Ruby.id);
         }
         getTexture(){
             return textures.Blocks_Ruby;
@@ -13,8 +14,10 @@ function registerC(){
             return true;
         }
         toItem(player, slot){
-            return new nameSpace.js.Items.Ruby(player, slot);
+            return new ItemR(player, slot);
         }
-    };
+        getClass(){
+            return Ruby;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Ruby;

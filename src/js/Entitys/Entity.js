@@ -1,4 +1,5 @@
-nameSpace.js.Entitys.Entity = class{
+const Player = require("./Controlable/Player.js");
+class Entity{
     static idEntitys = ["playerMax", "tryhardero", "zombie", "delfin"];
     static vidaDef = -1;
     static id = "entity";
@@ -99,7 +100,7 @@ nameSpace.js.Entitys.Entity = class{
         $(this.entityElement).css("transform", "scaleX(-1)");
     }
     isPlayer(){
-        return this instanceof nameSpace.js.Entitys.Controlable.Player;
+        return this instanceof Player;
     }
     damage(vidD){
         this.vid -= vidD;
@@ -123,4 +124,8 @@ nameSpace.js.Entitys.Entity = class{
     isKill(){
         return this.world.entitys[this.x] == null || this.world.entitys[this.x][this.y] == null;
     }
+    getClass(){
+        return Entity;
+    }
 }
+module.exports = Entity;

@@ -1,4 +1,4 @@
-nameSpace.js.Terreno.Ambient.Weather = class {
+class Weather{
     constructor(gen){
         this.gen = gen;
         setInterval(this.updateWeather.bind(this), 120 * 2000);
@@ -60,4 +60,5 @@ nameSpace.js.Terreno.Ambient.Weather = class {
       $(".lightning").show();
       this.timeW = setTimeout(this.lig.bind(this), Math.random() * 900000);
     }
-};
+}
+module.exports = Weather;

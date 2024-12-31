@@ -1,4 +1,4 @@
-nameSpace.js.Terreno.Ambient.Day = class {
+class Day{
     constructor(){
         daycycle = setInterval(this.updateDay.bind(this), 60000);
         this.updateDay();
@@ -61,4 +61,5 @@ nameSpace.js.Terreno.Ambient.Day = class {
           moon.style.right = moonPosition + "%";
         }
     }
-};
+}
+module.exports = Day;

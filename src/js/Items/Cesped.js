@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Items.Cesped = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[14];
+const Item = require('./Item.js');
+const BlockC = require('../Blocks/Cesped.js');
+class Cesped extends Item{
+        static id = Item.idItems[14];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.Cesped.id);
+            this.itemElement.classList.add(Cesped.id);
         }
         getTexture(){
             return textures.Blocks_Cesped;
@@ -13,8 +14,10 @@ function registerC(){
             return false;
         }
         toBlock(x, y, world){
-            return new nameSpace.js.Blocks.Cesped(x, y, world);
+            return new BlockC(x, y, world);
         }
-    };
+        getClass(){
+            return Cesped;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Cesped;

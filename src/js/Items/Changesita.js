@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Items.Changesita = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[8];
+const Item = require('./Item.js');
+const BlockC = require('../Blocks/Changesita.js');
+class Changesita extends Item{
+        static id = Item.idItems[8];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.Changesita.id);
+            this.itemElement.classList.add(Changesita.id);
         }
         getTexture(){
             return textures.Items_Changesita;
@@ -13,8 +14,10 @@ function registerC(){
             return false;
         }
         toBlock(x, y, world){
-            return new nameSpace.js.Blocks.Changesita(x, y, world);
+            return new BlockC(x, y, world);
         }
-    };
+        getClass(){
+            return Changesita;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Changesita;

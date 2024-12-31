@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Items.Carbon = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[5];
+const Item = require('./Item.js');
+const BlockC = require('../Blocks/Carbon.js');
+class Carbon extends Item{
+        static id = Item.idItems[5];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.Carbon.id);
+            this.itemElement.classList.add(Carbon.id);
         }
         getTexture(){
             return textures.Items_Carbon;
@@ -13,8 +14,10 @@ function registerC(){
             return false;
         }
         toBlock(x, y, world){
-            return new nameSpace.js.Blocks.Carbon(x, y, world);
+            return new BlockC(x, y, world);
         }
-    };
+        getClass(){
+            return Carbon;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Carbon;

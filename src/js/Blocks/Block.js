@@ -1,4 +1,5 @@
-nameSpace.js.Blocks.Block = class {
+const Item = require("../Items/Item.js");
+class Block{
     static idBlocks = ["tierraBlock", "mesaDeCraftBlock", "hierroBlock", "rubyBlock", "carbonBlock", "diamanteBlock", "oroBlock", "hojasBlock", "troncoDeMaderaBlock", "arenaBlock", "piedraBlock", "cespedBlock"];
     static resistencia = -1;
     static id = "aireBlock";
@@ -25,6 +26,10 @@ nameSpace.js.Blocks.Block = class {
         return false;
     }
     toItem(player, slot){
-        return new nameSpace.js.Items.Item(player, slot);
+        return new Item(player, slot);
     }
-};
+    getClass(){
+        return Block;
+    }
+}
+module.exports = Block;

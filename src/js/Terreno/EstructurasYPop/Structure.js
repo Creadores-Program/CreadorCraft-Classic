@@ -1,4 +1,4 @@
-nameSpace.js.Terreno.EstructurasYPop.Structure = class{
+class Structure{
     ySize = -1;
     xSize = -1;
     static StructuresId = ["portal", "cueva"];
@@ -7,4 +7,5 @@ nameSpace.js.Terreno.EstructurasYPop.Structure = class{
     static isEnterrado(){
         return false;
     }
-};
+}
+module.exports = Structure;

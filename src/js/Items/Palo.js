@@ -1,10 +1,10 @@
-function registerC(){
-    nameSpace.js.Items.Palo = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[1];
+const Item = require('./Item.js');
+class Palo extends Item{
+        static id = Item.idItems[1];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.Palo.id);
+            this.itemElement.classList.add(Palo.id);
         }
         getTexture(){
             return textures.Items_Palo;
@@ -12,6 +12,8 @@ function registerC(){
         isBreak(){
             return false;
         }
-    };
+        getClass(){
+            return Palo;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Palo;

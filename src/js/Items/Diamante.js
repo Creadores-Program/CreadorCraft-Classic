@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Items.Diamante = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[9];
+const Item = require('./Item.js');
+const BlockD = require('../Blocks/Diamante.js');
+class Diamante extends Item{
+        static id = Item.idItems[9];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.Diamante.id);
+            this.itemElement.classList.add(Diamante.id);
         }
         getTexture(){
             return textures.Items_Diamante;
@@ -13,8 +14,10 @@ function registerC(){
             return false;
         }
         toBlock(x, y, world){
-            return new nameSpace.js.Blocks.Diamante(x, y, world);
+            return new BlockD(x, y, world);
         }
-    };
+        getClass(){
+            return Diamante;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Diamante;

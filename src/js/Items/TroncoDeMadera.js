@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Items.TroncoDeMadera = class extends nameSpace.js.Items.Item{
-        static id = nameSpace.js.Items.Item.idItems[11];
+const Item = require('./Item.js');
+const BlockT = require('../Blocks/TroncoDeMadera.js');
+class TroncoDeMadera extends Item{
+        static id = Item.idItems[11];
         static resistencia = -1;
         constructor(player, slot){
             super(player, slot);
-            this.itemElement.classList.add(nameSpace.js.Items.TroncoDeMadera.id);
+            this.itemElement.classList.add(TroncoDeMadera.id);
         }
         getTexture(){
             return textures.Blocks_TroncoDeMadera;
@@ -13,8 +14,10 @@ function registerC(){
             return false;
         }
         toBlock(x, y, world){
-            return new nameSpace.js.Blocks.TroncoDeMadera(x, y, world);
+            return new BlockT(x, y, world);
         }
-    };
+        getClass(){
+            return TroncoDeMadera;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = TroncoDeMadera;

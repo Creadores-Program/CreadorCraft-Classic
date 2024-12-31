@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Blocks.Tierra = class extends nameSpace.js.Blocks.Block{
-        static id = nameSpace.js.Blocks.Block.idBlocks[0];
+const Block = require('./Block.js');
+const ItemT = require('../Items/Tierra.js');
+class Tierra extends Block{
+        static id = Block.idBlocks[0];
         static resistencia = 5000;
         constructor(x, y, world){
             super(x, y, world);
-            this.addBlockToWorld(nameSpace.js.Blocks.Tierra.id);
+            this.addBlockToWorld(Tierra.id);
         }
         getTexture(){
             return textures.Blocks_Tierra;
@@ -13,8 +14,10 @@ function registerC(){
             return true;
         }
         toItem(player, slot){
-            return new nameSpace.js.Items.Tierra(player, slot);
+            return new ItemT(player, slot);
         }
-    };
+        getClass(){
+            return Tierra;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Tierra;

@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Blocks.Hierro = class extends nameSpace.js.Blocks.Block{
-        static id = nameSpace.js.Blocks.Block.idBlocks[2];
+const Block = require("./Block.js");
+const ItemH = require("../Items/Hierro.js");
+class Hierro extends Block{
+        static id = Block.idBlocks[2];
         static resistencia = 16000;
         constructor(x, y, world){
             super(x, y, world);
-            this.addBlockToWorld(nameSpace.js.Blocks.Hierro.id);
+            this.addBlockToWorld(Hierro.id);
         }
         getTexture(){
             return textures.Blocks_Hierro;
@@ -13,8 +14,10 @@ function registerC(){
             return true;
         }
         toItem(player, slot){
-            return new nameSpace.js.Items.Hierro(player, slot);
+            return new ItemH(player, slot);
         }
-    };
+        getClass(){
+            return Hierro;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = Hierro;

@@ -1,10 +1,11 @@
-function registerC(){
-    nameSpace.js.Blocks.MesaDeCraft = class extends nameSpace.js.Blocks.Block{
-        static id = nameSpace.js.Blocks.Block.idBlocks[1];
+const Block = require('./Block.js');
+const ItemM = require('../Items/MesaDeCraft.js');
+class MesaDeCraft extends Block{
+        static id = Block.idBlocks[1];
         static resistencia = 8000;
         constructor(x, y, world){
             super(x, y, world);
-            this.addBlockToWorld(nameSpace.js.Blocks.MesaDeCraft.id);
+            this.addBlockToWorld(MesaDeCraft.id);
         }
         getTexture(){
             return textures.Blocks_MesaDeCraft;
@@ -13,8 +14,10 @@ function registerC(){
             return true;
         }
         toItem(player, slot){
-            return new nameSpace.js.Items.MesaDeCraft(player, slot);
+            return new ItemM(player, slot);
         }
-    };
+        getClass(){
+            return MesaDeCraft;
+        }
 }
-clasesExtendB[clasesExtendB.length] = registerC;
+module.exports = MesaDeCraft;

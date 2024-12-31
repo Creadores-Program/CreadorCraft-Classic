@@ -1,4 +1,5 @@
-nameSpace.js.Items.Item = class{
+const Block = require("../Blocks/Block.js");
+class Item{
     static idItems = ["tierra", "palo", "mesaDeCraft", "hierro", "ruby", "carbon", "oro", "lantano", "changesita", "diamante", "hojas", "troncoDeMadera", "arena", "piedra", "cesped"];
     static id = "aire";
     static resistencia = -1;
@@ -19,7 +20,7 @@ nameSpace.js.Items.Item = class{
         this.player.removeItem(this, this.slot);
     }
     toBlock(x, y, world){
-        return new nameSpace.js.Blocks.Block(x, y, world);
+        return new Block(x, y, world);
     }
     isComestible(){
         return false;
@@ -30,4 +31,8 @@ nameSpace.js.Items.Item = class{
     getHidratL(){
         return -1;
     }
-};
+    getClass(){
+        return Item;
+    }
+}
+module.exports = Item;

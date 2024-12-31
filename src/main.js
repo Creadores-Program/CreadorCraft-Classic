@@ -3,25 +3,19 @@ $("#gameControl").hide();
 $("#killScreen").hide();
 $("#Loader").hide();
 $("#Loader").fadeIn();
-var nameSpace = {};
 var textures = {};
 var daycycle;
 var clasesExtendB = [];
-var verifyResour;
-window.addEventListener("load", function(){
+window.addEventListener("load", async function(){
   $("#LoaderBar").prop("value", "100");
   $("#LoaderTxt").html("Loading Textures...");
   $("#LoaderBar").prop("value", "0");
   let textures = GameProps.getFileGame().folder("textures");
   let valP = 0;
-  textures.forEach(function(RelaPath, Texture){
+  await textures.forEach(async function(RelaPath, Texture){
     if(RelaPath.endsWith("/")) return;
-    Texture.async("uint8array").then(function(TextureBytes){
-      valP++;
-      $("#LoaderBar").prop("value", valP);
-      let TexturBlob = new Blob([TextureBytes], {
-        type: "image/webp"
-      });
+    try{
+      let TexturBlob = await Texture.async("blob");
       let TexturUrl = URL.createObjectURL(TexturBlob);
       switch(RelaPath){
         case "Controls/BackBtn.png":
@@ -119,63 +113,16 @@ window.addEventListener("load", function(){
           break;
       }
       textures[RelaPath.trim().replaceAll("/", "_").replaceAll(".png", "")] = TexturUrl;
-    }).catch(function(err){
+    }catch(err){
       alert("Error al Cargar Texturas\nJuego Dañado!\n\nError Loading Textures!\nGame Corrupted!");
       throw err;
-    });
+    }
   });
-  let clasesJS = GameProps.getFileGame().folder("js");
   valP = 0;
   $("#LoaderBar").prop("value", valP);
   $("#LoaderTxt").html("Loading Resources...");
-  nameSpace.js = {};
-  nameSpace.js.Blocks = {};
-  nameSpace.js.Items = {};
-  nameSpace.js.Entitys = {};
-  nameSpace.js.Entitys.Ostil = {};
-  nameSpace.js.Entitys.Pasive = {};
-  nameSpace.js.Entitys.Controlable = {};
-  nameSpace.js.Terreno = {};
-  nameSpace.js.Terreno.Biomes = {};
-  nameSpace.js.Terreno.SubBiomesUni = {};
-  nameSpace.js.Terreno.Ambient = {};
-  nameSpace.js.Terreno.EstructurasYPop = {};
-  clasesJS.forEach(function (RelaPath, claseJS) {
-    if(RelaPath.endsWith("/")) return;
-    claseJS.async("string").then(function (claseJSstr) {
-      valP++;
-      $("#LoaderBar").prop("value", valP);
-      let execC = new Function(claseJSstr);
-      execC();
-    }).catch(function(err){
-      alert("Error al Cargar Recursos\nJuego Dañado!\n\nError Loading Resources!\nGame Corrupted!");
-      throw err;
-    });
-  });
-  valP = 0;
-  $("#LoaderBar").prop("value", valP);
-  $("#LoaderTxt").html("Checking Resources...");
-  function terminarLoad(){
-    if(valP > 100) valP = 0;
-    $("#LoaderBar").prop("value", valP);
-    valP++;
-    if(nameSpace.js.Blocks.Block == null || nameSpace.js.Entitys.Entity == null || nameSpace.js.Terreno.Generador == null || nameSpace.js.Items.Item == null || nameSpace.js.Terreno.Biomes.Biome == null || nameSpace.js.Terreno.SubBiomesUni.SubBiomeUni == null || nameSpace.js.Terreno.EstructurasYPop.Structure == null) return;
-    for(let cEB of clasesExtendB){
-      cEB();
-    }
-    clasesExtendB = [];
-    if(Object.keys(nameSpace.js.Blocks).length < 13) return;
-    if(Object.keys(nameSpace.js.Items).length < 16) return;
-    if(Object.keys(nameSpace.js.Terreno.Ambient).length < 2 || Object.keys(nameSpace.js.Terreno.Biomes).length < 1 || Object.keys(nameSpace.js.Terreno.EstructurasYPop).length < 1 || Object.keys(nameSpace.js.Terreno.SubBiomesUni).length < 1) return;
-    if(Object.keys(nameSpace.js.Entitys.Controlable).length < 1) return;
-    $("#LoaderBar").prop("value", "100");
-    clearInterval(verifyResour);
-    delete clasesExtendB;
-    delete verifyResour;
-    $("#Loader").fadeOut();
-    startGameWorld();
-  }
-  verifyResour = setInterval(terminarLoad, 0);
+  await require.CreadorCraftInit();
+  valP = 100;
 });
 function startGameWorld() {
   if(GameProps.getStorage().get("data") == null){
