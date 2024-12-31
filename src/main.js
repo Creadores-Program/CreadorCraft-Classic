@@ -123,6 +123,7 @@ window.addEventListener("load", async function(){
   $("#LoaderTxt").html("Loading Resources...");
   await require.CreadorCraftInit();
   valP = 100;
+  $("#Loader").fadeOut();
 });
 function startGameWorld() {
   if(GameProps.getStorage().get("data") == null){

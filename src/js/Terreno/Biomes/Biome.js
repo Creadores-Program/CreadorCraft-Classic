@@ -1,4 +1,5 @@
 const SubBiomeUni = require("../SubBiomesUni/SubBiomeUni.js");
+const SubBiomeMontaña = require("../SubBiomesUni/Montaña.js");
 class Biome{
     subBiomeId = "null";
     static biomesIds = ["nevado", "normal", "desierto", "oceano", "FortalezaFin"];
@@ -15,7 +16,7 @@ class Biome{
     static getSubBiomeById(id){
         switch(id){
             case SubBiomeUni.subBiomesIds[0]:
-                return new nameSpace.js.Terreno.SubBiomesUni.Montaña();
+                return new SubBiomeMontaña();
             case SubBiomeUni.subBiomesIds[1]:
                 return new nameSpace.js.Terreno.SubBiomesUni.Normal();
             case SubBiomeUni.subBiomesIds[2]:
