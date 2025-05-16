@@ -20,10 +20,9 @@ class Player extends Entity{
     constructor(x, y, world, vid){
             super(x, y, world, vid);
             this.addEntityToWorld(Player.id);
-            this.entityElement.id = Player.id;
             this.inventary = this.world.player.inventary;
     }
-    getTexture(){
+    static getTexture(){
         //code..
     }
     respawn(){

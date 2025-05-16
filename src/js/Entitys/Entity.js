@@ -1,4 +1,5 @@
 const Player = require("./Controlable/Player.js");
+const RandomUUID = require("js/Utils/RandomUUID.js");
 class Entity{
     static idEntitys = ["playerMax", "tryhardero", "zombie", "delfin"];
     static vidaDef = -1;
@@ -28,7 +29,7 @@ class Entity{
     addEntityToWorld(iD){
         if(!this.isPlayer()){
           if(this.uniqueId == -1){
-            this.uniqueId = Math.random();
+            this.uniqueId = RandomUUID();
           }
           this.world.entitys[this.x][this.y] = (this.world.entitys[this.x][this.y] || {});
           this.world.entitys[this.x][this.y][this.uniqueId] = {};
@@ -36,6 +37,7 @@ class Entity{
           this.world.entitys[this.x][this.y][this.uniqueId].vid = this.vid;
           this.world.entitys[this.x][this.y][this.uniqueId].calor = this.calor;
           this.world.entitys[this.x][this.y][this.uniqueId].freez = this.freez;
+          this.entityElement.id = this.uniqueId;
         }
         this.entityElement.classList.add(iD);
     }
@@ -46,7 +48,7 @@ class Entity{
           delete this.world.entitys[this.x][this.y][this.uniqueId];
         }
     }
-    getTexture(){
+    static getTexture(){
         return "";
     }
     getTextureJump(){
@@ -117,6 +119,9 @@ class Entity{
                 this.addItem(i, -1);
             }
         }
+    }
+    initIA(){
+        //code
     }
     toItems(){
         return [];

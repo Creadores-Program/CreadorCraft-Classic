@@ -10,9 +10,9 @@ window.addEventListener("load", async function(){
   $("#LoaderBar").prop("value", "100");
   $("#LoaderTxt").html("Loading Textures...");
   $("#LoaderBar").prop("value", "0");
-  let textures = GameProps.getFileGame().folder("textures");
+  let texturesZ = GameProps.getFileGame().folder("textures");
   let valP = 0;
-  await textures.forEach(async function(RelaPath, Texture){
+  await texturesZ.forEach(async function(RelaPath, Texture){
     if(RelaPath.endsWith("/")) return;
     try{
       let TexturBlob = await Texture.async("blob");
