@@ -1,9 +1,11 @@
 const SubBiomeUni = require("../SubBiomesUni/SubBiomeUni.js");
 const SubBiomeMontaña = require("../SubBiomesUni/Montaña.js");
+const Nevado = require("./Nevado.js");
 class Biome{
     subBiomeId = "null";
     static biomesIds = ["nevado", "normal", "desierto", "oceano", "FortalezaFin"];
     StructureAviable = [];
+    filtrer = {};
     constructor(xMin, xMax, world, subBiome){
         this.world = world;
         this.xMin = xMin;
@@ -28,7 +30,7 @@ class Biome{
     static getBiomeById(id, xMin, xMax, world, subBiome){
         switch(id){
             case Biome.biomesIds[0]:
-                return new nameSpace.js.Terreno.Biomes.Nevado(xMin, xMax, world, subBiome);
+                return new Nevado(xMin, xMax, world, subBiome);
             case Biome.biomesIds[1]:
                 return new nameSpace.js.Terreno.Biomes.Normal(xMin, xMax, world, subBiome);
             case Biome.biomesIds[2]:

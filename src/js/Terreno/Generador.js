@@ -32,7 +32,6 @@ class Generador{
         this.player.protect = this.world.protect;
         this.id = id;
         setInterval(this.save.bind(this), 600000);
-        setInterval(this.updateScreen.bind(this), 0);
         GameProps.addEventListener("pauseEvent", this.save.bind(this));
         Respawn.addEventListener("click", this.player.respawn.bind(this.player));
         $("html, body").css("overflow-y", "hidden");
@@ -41,6 +40,7 @@ class Generador{
         this.weather = new Weather(this);
         GameProps.getGameMusic().play();
         $("#Loader").fadeOut();
+        requestAnimationFrame(this.updateScreen.bind(this));
     }
     static genNewWorld(id, name){
         let worldCache = {};
@@ -200,6 +200,7 @@ class Generador{
                 }
             }
         }
+        requestAnimationFrame(this.updateScreen.bind(this));
     }
     convertBlockById(id, x, y){
         x = (x || "CacheBX");
