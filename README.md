@@ -96,8 +96,9 @@ CreadorCraft-Classic-Backend/
 
 ## 🔄 Flujo de Desarrollo (GitLab Flow)
 
-Este proyecto utiliza **GitLab Flow** con la rama principal:
-- **`main`**: Rama principal de producción
+Este proyecto utiliza **GitLab Flow** con estructura de ramas:
+- **`main`**: Rama de producción para releases estables
+- **`develop`**: Rama principal de desarrollo, base para nuevas características
 
 Para más detalles sobre el proceso de contribución, consulta [CONTRIBUTING.md](CONTRIBUTING.md).
 

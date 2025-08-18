@@ -9,7 +9,7 @@ C4Component
     title Servidor de Juego Principal - Componentes Internos
 
     Container(apiGateway, "API Gateway", "Node.js/Express", "Punto de entrada para requests autenticados")
-    Container(realtimeComm, "Comunicación TR", "WebSocket", "Manejo de eventos en tiempo real")
+    Container(realtimeComm, "Comunicacion TR", "WebSocket", "Manejo de eventos en tiempo real")
     ContainerDb(gameDatabase, "Base de Datos", "JSON Storage", "Persistencia de datos del juego")
 
     Container_Boundary(gameServer, "Servidor de Juego Principal") {
@@ -27,34 +27,34 @@ C4Component
         
         Component(eventDispatcher, "Despachador de Eventos", "EventEmitter", "Distribuye eventos entre componentes internos")
         
-        Component(saveManager, "Gestor de Guardado", "Node.js Service", "Maneja la persistencia automática y manual del estado")
+        Component(saveManager, "Gestor de Guardado", "Node.js Service", "Maneja la persistencia automatica y manual del estado")
         
-        Component(validationEngine, "Motor de Validación", "Node.js Validator", "Valida todas las acciones de jugadores y cambios de estado")
+        Component(validationEngine, "Motor de Validacion", "Node.js Validator", "Valida todas las acciones de jugadores y cambios de estado")
     }
 
     ' Relaciones externas
-    Rel(apiGateway, gameOrchestrator, "Requests de configuración", "HTTP/JSON")
+    Rel(apiGateway, gameOrchestrator, "Requests de configuracion", "HTTP/JSON")
     Rel(realtimeComm, gameOrchestrator, "Eventos de jugadores", "Events/JSON")
     Rel(saveManager, gameDatabase, "Persistir datos", "JSON I/O")
 
     ' Relaciones internas
     Rel(gameOrchestrator, gameModeManager, "Coordinar modos", "Comandos internos")
-    Rel(gameOrchestrator, worldManager, "Gestión de mundos", "API interna")
+    Rel(gameOrchestrator, worldManager, "Gestion de mundos", "API interna")
     Rel(gameOrchestrator, eventDispatcher, "Distribuir eventos", "Events")
     
     Rel(worldManager, entitySystem, "Spawning de entidades", "Factory calls")
-    Rel(worldManager, blockSystem, "Generación de bloques", "Builder pattern")
+    Rel(worldManager, blockSystem, "Generacion de bloques", "Builder pattern")
     Rel(worldManager, biomeGenerator, "Generar biomas", "Strategy pattern")
     Rel(worldManager, saveManager, "Solicitar guardado", "Commands")
     
-    Rel(entitySystem, blockSystem, "Interacción entidad-bloque", "Collision detection")
+    Rel(entitySystem, blockSystem, "Interaccion entidad-bloque", "Collision detection")
     Rel(entitySystem, validationEngine, "Validar movimientos", "Validation calls")
     Rel(entitySystem, eventDispatcher, "Eventos de entidad", "Event emission")
     
     Rel(blockSystem, eventDispatcher, "Eventos de bloque", "Event emission")
     Rel(gameModeManager, entitySystem, "Control de entidades por modo", "Mode-specific logic")
     
-    Rel(validationEngine, eventDispatcher, "Errores de validación", "Error events")
+    Rel(validationEngine, eventDispatcher, "Errores de validacion", "Error events")
     Rel(eventDispatcher, realtimeComm, "Broadcasting", "WebSocket events")
     
     UpdateRelStyle(gameOrchestrator, worldManager, $textColor="blue", $lineColor="blue")

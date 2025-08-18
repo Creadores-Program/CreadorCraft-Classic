@@ -77,7 +77,7 @@ Si tu cambio afecta la interfaz de usuario o tiene output visual, incluye captur
 - [ ] He probado casos edge y manejo de errores
 
 ### 🔄 Proceso
-- [ ] Mi rama está actualizada con la rama main
+- [ ] Mi rama está actualizada con la rama develop
 - [ ] He seguido las convenciones de commit del proyecto
 - [ ] He linkado este PR con el issue correspondiente
 - [ ] He asignado reviewers apropiados

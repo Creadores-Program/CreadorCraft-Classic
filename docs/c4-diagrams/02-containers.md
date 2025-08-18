@@ -24,25 +24,25 @@ C4Container
         
         ContainerDb(gameDatabase, "Base de Datos del Juego", "JSON Storage", "Almacena mundos, entidades, progreso de jugadores y configuraciones")
         
-        Container(realtimeComm, "Comunicación en Tiempo Real", "WebSocket Server", "Maneja todas las comunicaciones WebSocket y broadcasting de eventos")
+        Container(realtimeComm, "Comunicacion en Tiempo Real", "WebSocket Server", "Maneja todas las comunicaciones WebSocket y broadcasting de eventos")
     }
 
-    System_Ext(ccPlatform, "Plataforma CreadorCraft", "Sistema de autenticación externo")
+    System_Ext(ccPlatform, "Plataforma CreadorCraft", "Sistema de autenticacion externo")
     System_Ext(webClient, "Cliente Web", "Frontend del juego")
 
     ' Relaciones de usuarios con contenedores
-    Rel(jugador, webClient, "Interactúa con el juego", "HTTP/WebSocket")
+    Rel(jugador, webClient, "Interactua con el juego", "HTTP/WebSocket")
     Rel(admin, apiGateway, "Administra sistema", "HTTPS/REST")
     
     ' Relaciones entre cliente y backend
-    Rel(webClient, apiGateway, "Autenticación, configuración", "HTTPS/REST")
+    Rel(webClient, apiGateway, "Autenticacion, configuracion", "HTTPS/REST")
     Rel(webClient, realtimeComm, "Eventos en tiempo real", "WebSocket/JSON")
     
     ' Relaciones internas
     Rel(apiGateway, gameServer, "Requests autenticados", "HTTP")
-    Rel(apiGateway, ccPlatform, "Validación de usuarios", "HTTPS")
+    Rel(apiGateway, ccPlatform, "Validacion de usuarios", "HTTPS")
     
-    Rel(gameServer, gameStateManager, "Gestión de estado", "Eventos internos")
+    Rel(gameServer, gameStateManager, "Gestion de estado", "Eventos internos")
     Rel(gameServer, npcManager, "Control de NPCs", "Comandos")
     Rel(gameServer, economyEngine, "Operaciones económicas", "API interna")
     Rel(gameServer, realtimeComm, "Broadcasting de eventos", "WebSocket")
@@ -51,7 +51,7 @@ C4Container
     Rel(npcManager, gameDatabase, "Estado de NPCs", "JSON I/O")
     Rel(economyEngine, gameDatabase, "Datos económicos", "JSON I/O")
     
-    Rel(realtimeComm, gameStateManager, "Sincronización", "Eventos")
+    Rel(realtimeComm, gameStateManager, "Sincronizacion", "Eventos")
 
     UpdateRelStyle(jugador, webClient, $textColor="blue", $lineColor="blue")
     UpdateRelStyle(webClient, realtimeComm, $textColor="purple", $lineColor="purple")

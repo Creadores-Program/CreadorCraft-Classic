@@ -38,14 +38,15 @@ Este proyecto adhiere a nuestro [Código de Conducta](CODE_OF_CONDUCT.md). Al pa
 
 ## 🔄 Flujo de Desarrollo (GitLab Flow)
 
-Este proyecto utiliza **GitLab Flow** con la rama principal `main`:
+Este proyecto utiliza **GitLab Flow** con la rama principal `develop` para desarrollo:
 
 ### Estructura de Ramas
 
-- **`main`**: Rama principal de producción, siempre estable
-- **`feature/nombre-feature`**: Ramas para nuevas características
-- **`fix/nombre-bug`**: Ramas para correcciones de bugs
-- **`docs/descripcion`**: Ramas para cambios de documentación
+- **`main`**: Rama de producción para releases estables
+- **`develop`**: Rama principal de desarrollo, base para nuevas características
+- **`feature/nombre-feature`**: Ramas para nuevas características (desde `develop`)
+- **`fix/nombre-bug`**: Ramas para correcciones de bugs (desde `develop`)
+- **`docs/descripcion`**: Ramas para cambios de documentación (desde `develop`)
 
 ### Proceso de Desarrollo
 
@@ -56,8 +57,8 @@ cd CreadorCraft-Classic-Backend
 git remote add upstream https://github.com/Creadores-Program/CreadorCraft-Classic-Backend.git
 
 # 2. Crear rama para tu trabajo
-git checkout main
-git pull upstream main
+git checkout develop
+git pull upstream develop
 git checkout -b feature/mi-nueva-caracteristica
 
 # 3. Hacer cambios y commits
@@ -66,7 +67,7 @@ git commit -m "feat: añadir nueva característica X"
 
 # 4. Mantener actualizada tu rama
 git fetch upstream
-git rebase upstream/main
+git rebase upstream/develop
 
 # 5. Push y crear Pull Request
 git push origin feature/mi-nueva-caracteristica
@@ -131,7 +132,7 @@ class Generador {
 - [ ] 📝 Actualizar documentación si es necesario
 - [ ] 🧪 Añadir tests para funcionalidad nueva
 - [ ] 📋 Seguir el template de PR
-- [ ] 🔄 Rebase con la rama main más reciente
+- [ ] 🔄 Rebase con la rama develop más reciente
 
 ### Template de Pull Request
 

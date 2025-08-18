@@ -10,8 +10,8 @@ contact_links:
     url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/security
     about: Para reportar problemas de seguridad de forma privada y responsable
   - name: 🤝 Guía de Contribución
-    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/blob/main/CONTRIBUTING.md
+    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/blob/develop/CONTRIBUTING.md
     about: Lee cómo contribuir al proyecto y las mejores prácticas
   - name: 📋 Código de Conducta
-    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/blob/main/CODE_OF_CONDUCT.md
+    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/blob/develop/CODE_OF_CONDUCT.md
     about: Nuestras reglas y estándares de comportamiento en la comunidad
