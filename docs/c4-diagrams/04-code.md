@@ -45,7 +45,7 @@ classDiagram
         -velocity: number
         -velocitySpeed: number
         -protect: number
-        -inventary: Object
+        -inventory: Object
         
         +constructor(x, y, world, vid)
         +respawn(): void
