@@ -15,7 +15,7 @@ classDiagram
         -entityElement: HTMLElement
         -attack: number
         -calor: number
-        -freez: number
+        -freeze: number
         
         +constructor(x, y, world, vid)
         +moveIF(): void
