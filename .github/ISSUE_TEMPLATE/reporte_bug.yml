@@ -1,0 +1,183 @@
+name: 🐛 Reporte de Bug
+description: Reporta un error o comportamiento inesperado
+title: "[BUG]: "
+labels: ["bug", "needs-triage"]
+assignees: ["Creadores-Program"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 👋 ¡Gracias por reportar este bug!
+        
+        Tu reporte nos ayuda a mejorar CreadorCraft-Classic-Backend. Por favor, completa la información solicitada para que podamos reproducir y corregir el problema rápidamente.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Verificaciones Previas
+      description: Antes de continuar, confirma que has realizado estas verificaciones
+      options:
+        - label: He buscado en los issues existentes y no encontré un duplicado
+          required: true
+        - label: He leído el README y la documentación del proyecto
+          required: true
+        - label: Estoy usando una versión soportada del proyecto
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Descripción del Bug
+      description: Proporciona una descripción clara y concisa del error
+      placeholder: Describe qué está mal y qué esperabas que pasara
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 🔄 Pasos para Reproducir
+      description: Proporciona pasos detallados para reproducir el bug
+      placeholder: |
+        1. Ve a '...'
+        2. Haz clic en '....'
+        3. Desplázate hacia abajo hasta '....'
+        4. Ve el error
+      value: |
+        1. 
+        2. 
+        3. 
+        4. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ Comportamiento Esperado
+      description: Describe claramente qué esperabas que pasara
+      placeholder: Describe el comportamiento correcto esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: ❌ Comportamiento Actual
+      description: Describe claramente qué está pasando en su lugar
+      placeholder: Describe el comportamiento incorrecto que estás viendo
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 📸 Capturas de Pantalla/Videos
+      description: Si aplica, añade capturas de pantalla o videos para explicar el problema
+      placeholder: |
+        Puedes arrastrar y soltar imágenes aquí, o usar markdown:
+        ![Descripción](url-de-la-imagen)
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 🚨 Severidad
+      description: ¿Qué tan severo consideras este bug?
+      options:
+        - Baja - Problema cosmético o menor
+        - Media - Funcionalidad afectada pero hay workaround
+        - Alta - Funcionalidad importante no funciona
+        - Crítica - Aplicación inutilizable o pérdida de datos
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: 🔄 Frecuencia
+      description: ¿Con qué frecuencia ocurre este bug?
+      options:
+        - Siempre - 100% del tiempo
+        - Frecuentemente - Más del 50% del tiempo
+        - A veces - Menos del 50% del tiempo
+        - Raramente - Muy ocasionalmente
+        - Una sola vez - Solo pasó una vez
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 📦 Versión del Proyecto
+      description: ¿Qué versión del proyecto estás usando?
+      placeholder: "ej: 1.0.0, latest, commit hash"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 🌐 Navegador
+      description: ¿Qué navegador estás usando? (si aplica)
+      placeholder: "ej: Chrome 120.0, Firefox 121.0, Safari 17.0"
+
+  - type: input
+    id: os
+    attributes:
+      label: 💻 Sistema Operativo
+      description: ¿En qué sistema operativo estás?
+      placeholder: "ej: Windows 11, macOS 14.0, Ubuntu 22.04"
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: 🟢 Versión de Node.js
+      description: ¿Qué versión de Node.js estás usando? (si aplica)
+      placeholder: "ej: 18.17.0, 20.8.0"
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 🌍 Información Adicional del Entorno
+      description: Cualquier otra información relevante sobre tu entorno
+      placeholder: |
+        - Hardware específico
+        - Configuraciones especiales
+        - Extensiones del navegador
+        - Otros detalles técnicos
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 📋 Logs/Mensajes de Error
+      description: Si hay logs, mensajes de error en consola, o stack traces, inclúyelos aquí
+      placeholder: Pega aquí cualquier log o mensaje de error
+      render: text
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: ℹ️ Información Adicional
+      description: Cualquier otra información que pueda ser útil para resolver el issue
+      placeholder: |
+        - ¿Has probado algún workaround?
+        - ¿El problema empezó después de algún cambio específico?
+        - ¿Hay algún patrón que hayas notado?
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤝 ¿Quieres Ayudar?
+        
+        Si estás interesado en trabajar en la corrección de este bug, háznos saber en los comentarios. ¡Las contribuciones son bienvenidas!
+        
+        ## 📞 Contacto
+        
+        Para bugs críticos o problemas de seguridad, revisa nuestra [política de seguridad](../SECURITY.md).
+        
+        ¡Gracias por ayudarnos a mejorar CreadorCraft-Classic-Backend! 🎮✨

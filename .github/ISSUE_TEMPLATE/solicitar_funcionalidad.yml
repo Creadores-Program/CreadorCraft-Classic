@@ -1,0 +1,259 @@
+name: ✨ Solicitar Funcionalidad
+description: Sugiere una nueva característica o mejora para el proyecto
+title: "[FEATURE]: "
+labels: ["enhancement", "needs-discussion"]
+assignees: ["Creadores-Program"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 💡 ¡Gracias por tu sugerencia!
+        
+        Las nuevas ideas son siempre bienvenidas en CreadorCraft-Classic-Backend. Tu sugerencia nos ayuda a hacer el proyecto mejor para toda la comunidad.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Verificaciones Previas
+      description: Antes de continuar, confirma que has realizado estas verificaciones
+      options:
+        - label: He buscado en los issues existentes y no encontré una solicitud similar
+          required: true
+        - label: He revisado el roadmap del proyecto y esta funcionalidad no está ya planificada
+          required: true
+        - label: Esta solicitud está alineada con los objetivos del proyecto
+          required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 🏷️ Categoría de la Funcionalidad
+      description: ¿A qué área del proyecto pertenece tu sugerencia?
+      options:
+        - 🎮 Mecánicas de Juego - Nuevas mecánicas o modos de juego
+        - 🌐 API/WebSockets - Mejoras en comunicación y API
+        - 🏗️ Arquitectura - Cambios estructurales o de diseño
+        - 👥 Gestión de Jugadores - Autenticación, perfiles, sesiones
+        - 🤖 Sistema NPC - Inteligencia artificial y NPCs
+        - 📊 Rendimiento - Optimizaciones y performance
+        - 🛠️ DevEx - Experiencia de desarrollador
+        - 📱 UI/UX - Interfaz de usuario
+        - 🔧 Configuración - Settings y configuraciones
+        - 📚 Documentación - Mejoras en docs
+        - 🧪 Testing - Herramientas de testing
+        - 🔒 Seguridad - Mejoras de seguridad
+        - Otro - Especificar en descripción
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🎯 ¿Qué Problema Resuelve?
+      description: Describe claramente qué problema o necesidad aborda esta funcionalidad
+      placeholder: |
+        Como [tipo de usuario], me encuentro con el problema de...
+        Actualmente es difícil/imposible hacer...
+        Los usuarios necesitan...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 💭 Solución Propuesta
+      description: Describe detalladamente la funcionalidad que propones
+      placeholder: |
+        Propongo implementar...
+        La funcionalidad debería permitir...
+        El comportamiento esperado sería...
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: ✅ Beneficios y Valor
+      description: ¿Qué beneficios traería esta funcionalidad?
+      placeholder: |
+        - Mejora la experiencia de usuario porque...
+        - Reduce la complejidad al...
+        - Aumenta el rendimiento mediante...
+        - Facilita a los desarrolladores...
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: 👤 Historias de Usuario
+      description: Describe casos de uso específicos desde la perspectiva del usuario
+      placeholder: |
+        Como [tipo de usuario], quiero [funcionalidad] para que [beneficio]
+        
+        Ejemplo:
+        Como jugador, quiero poder guardar mi progreso automáticamente para que no pierda mi avance si se cierra el juego
+        Como administrador, quiero poder ver estadísticas de uso para que pueda optimizar la experiencia
+      value: |
+        **Historia Principal:**
+        Como [tipo de usuario], quiero [funcionalidad] para que [beneficio]
+        
+        **Historias Relacionadas:**
+        - Como..., quiero..., para que...
+        - Como..., quiero..., para que...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 📊 Prioridad Sugerida
+      description: ¿Qué tan importante consideras esta funcionalidad?
+      options:
+        - Baja - Nice to have, no es urgente
+        - Media - Sería útil tenerla pronto
+        - Alta - Importante para la experiencia del usuario
+        - Crítica - Esencial para el funcionamiento básico
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: ⚡ Complejidad Estimada
+      description: ¿Qué tan compleja crees que sería de implementar?
+      options:
+        - Baja - Cambios menores, pocas horas
+        - Media - Desarrollo moderado, algunos días
+        - Alta - Desarrollo significativo, semanas
+        - Muy Alta - Cambios arquitectónicos mayores
+        - No estoy seguro - Necesita evaluación técnica
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 🔄 Alternativas Consideradas
+      description: ¿Has considerado otras formas de resolver este problema?
+      placeholder: |
+        He considerado:
+        1. Alternativa A: [descripción] - Pros: [...] - Contras: [...]
+        2. Alternativa B: [descripción] - Pros: [...] - Contras: [...]
+        
+        Prefiero la solución propuesta porque...
+
+  - type: textarea
+    id: technical-details
+    attributes:
+      label: 🔧 Detalles Técnicos (Opcional)
+      description: Si tienes conocimientos técnicos, proporciona detalles adicionales
+      placeholder: |
+        - APIs necesarias
+        - Cambios en base de datos
+        - Dependencias requeridas
+        - Consideraciones de arquitectura
+        - Impacto en performance
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: 🎨 Mockups/Wireframes (Opcional)
+      description: Si tienes mockups, wireframes o diagramas, compártelos aquí
+      placeholder: |
+        Puedes arrastrar y soltar imágenes aquí, o usar markdown:
+        ![Descripción](url-de-la-imagen)
+        
+        O describir textualmente cómo debería verse/funcionar
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: ✅ Criterios de Aceptación
+      description: ¿Cómo sabremos que esta funcionalidad está completa?
+      placeholder: |
+        - [ ] El usuario puede [acción específica]
+        - [ ] El sistema [comportamiento específico]
+        - [ ] Los datos se [procesamiento específico]
+        - [ ] La interfaz [interacción específica]
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] 
+
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: 🌍 Áreas de Impacto
+      description: ¿Qué partes del sistema podrían verse afectadas?
+      options:
+        - label: 🎮 Mecánicas de juego core
+        - label: 🌐 API REST endpoints
+        - label: 🔌 WebSocket communication
+        - label: 👥 Sistema de autenticación
+        - label: 🤖 Sistema de NPCs
+        - label: 💾 Persistencia de datos
+        - label: 📱 Interfaz de usuario
+        - label: 🔧 Configuración del sistema
+        - label: 📚 Documentación
+        - label: 🧪 Tests y QA
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: ⚠️ Restricciones y Consideraciones
+      description: ¿Hay alguna restricción importante a considerar?
+      options:
+        - label: 🔄 Debe ser compatible con versiones anteriores
+        - label: ⚡ Debe mantener el rendimiento actual
+        - label: 🔒 Debe seguir las políticas de seguridad
+        - label: 🌐 Debe funcionar en múltiples navegadores
+        - label: 📱 Debe ser responsive/móvil-friendly
+        - label: ♿ Debe seguir estándares de accesibilidad
+        - label: 🌍 Debe soportar internacionalización
+        - label: 📊 Debe incluir métricas/analytics
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: ℹ️ Información Adicional
+      description: Cualquier otra información que pueda ser útil
+      placeholder: |
+        - Referencias a implementaciones similares
+        - Links a investigación o recursos
+        - Feedback de usuarios
+        - Consideraciones de timeline
+        - Recursos disponibles
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: 🤝 Contribución
+      description: ¿Estarías interesado en ayudar con la implementación?
+      options:
+        - label: 💻 Puedo ayudar con el desarrollo
+        - label: 🎨 Puedo ayudar con diseño/mockups
+        - label: 📚 Puedo ayudar con documentación
+        - label: 🧪 Puedo ayudar con testing
+        - label: 💬 Puedo ayudar con feedback/review
+        - label: ❌ No puedo contribuir pero apoyo la idea
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🗳️ Próximos Pasos
+        
+        Una vez que envíes esta solicitud:
+        1. **Revisión inicial** - El equipo evaluará la propuesta
+        2. **Discusión** - Puede haber preguntas y refinamiento
+        3. **Decisión** - Se decidirá si proceder con la implementación
+        4. **Planning** - Si se aprueba, se planificará la implementación
+        
+        ## 💡 ¿Sabías que...?
+        
+        Las mejores solicitudes de funcionalidad incluyen:
+        - Problema claro y bien definido
+        - Beneficios concretos para los usuarios
+        - Criterios de aceptación específicos
+        - Consideración de alternativas
+        
+        ¡Gracias por ayudarnos a hacer CreadorCraft-Classic-Backend aún mejor! 🎮✨
