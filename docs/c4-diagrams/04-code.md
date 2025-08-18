@@ -13,7 +13,7 @@ classDiagram
         -world: Object
         -uniqueId: string
         -entityElement: HTMLElement
-        -attak: number
+        -attack: number
         -calor: number
         -freez: number
         
