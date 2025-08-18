@@ -30,15 +30,15 @@ C4Container
     System_Ext(ccPlatform, "Plataforma CreadorCraft", "Sistema de autenticacion externo")
     System_Ext(webClient, "Cliente Web", "Frontend del juego")
 
-    ' Relaciones de usuarios con contenedores
+  %% Relaciones de usuarios con contenedores
     Rel(jugador, webClient, "Interactua con el juego", "HTTP/WebSocket")
     Rel(admin, apiGateway, "Administra sistema", "HTTPS/REST")
     
-    ' Relaciones entre cliente y backend
+  %% Relaciones entre cliente y backend
     Rel(webClient, apiGateway, "Autenticacion, configuracion", "HTTPS/REST")
     Rel(webClient, realtimeComm, "Eventos en tiempo real", "WebSocket/JSON")
     
-    ' Relaciones internas
+  %% Relaciones internas
     Rel(apiGateway, gameServer, "Requests autenticados", "HTTP")
     Rel(apiGateway, ccPlatform, "Validacion de usuarios", "HTTPS")
     
