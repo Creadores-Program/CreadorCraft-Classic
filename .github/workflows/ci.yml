@@ -50,7 +50,7 @@ jobs:
             echo "extra_tags=dev" >> $GITHUB_OUTPUT
           else
             echo "tags=latest" >> $GITHUB_OUTPUT
-            echo "extra_tags=${{ github.sha }} >> $GITHUB_OUTPUT
+            echo "extra_tags=${{ github.sha }}" >> $GITHUB_OUTPUT
           fi
 
       ## QEMU para arquitecturas ARM
