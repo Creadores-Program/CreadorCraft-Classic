@@ -13,13 +13,13 @@ importers:
         version: 5.1.0
     devDependencies:
       '@babel/core':
-        specifier: ^7.22.0
+        specifier: ^7.28.3
         version: 7.28.3
       '@babel/preset-env':
-        specifier: ^7.22.0
+        specifier: ^7.28.3
         version: 7.28.3(@babel/core@7.28.3)
       babel-jest:
-        specifier: ^30.0.0
+        specifier: ^30.0.5
         version: 30.0.5(@babel/core@7.28.3)
       jest:
         specifier: ^30.0.5

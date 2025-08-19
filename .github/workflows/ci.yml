@@ -1,0 +1,82 @@
+name: CI/CD Build, testing and deployment
+
+on:
+  push:
+    branches: [main, develop, "feature/*"]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.14.0
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm test
+
+      ## docker
+
+      # Tags, latest para todos y stable -> main; dev -> develop
+      - name: Determinate tags
+        id: docker_tags
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "tags=latest" >> $GITHUB_OUTPUT
+            echo "extra_tags=stable" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
+            echo "tags=latest" >> $GITHUB_OUTPUT
+            echo "extra_tags=dev" >> $GITHUB_OUTPUT
+          else
+            echo "tags=latest" >> $GITHUB_OUTPUT
+            echo "extra_tags=${{ github.sha }} >> $GITHUB_OUTPUT
+          fi
+
+      ## QEMU para arquitecturas ARM
+      - name: Set up QEMU
+        if: github.event_name == 'push'
+        uses: docker/setup-qemu-action@v3
+
+      - name: Login to Docker Hub
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create lowercase repo name
+        id: lowercase_repo
+        run: echo "repository=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Build and push Docker image (main, develop)
+        id: build_and_push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
+          tags: |
+            ghcr.io/${{ steps.lowercase_repo.outputs.repository }}:${{ steps.docker_tags.outputs.tags }}
+            ghcr.io/${{ steps.lowercase_repo.outputs.repository }}:${{ steps.docker_tags.outputs.extra_tags }}
