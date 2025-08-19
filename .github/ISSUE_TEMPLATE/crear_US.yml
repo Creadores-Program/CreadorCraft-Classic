@@ -1,0 +1,345 @@
+name: 📋 Crear User Story
+description: Crea una User Story siguiendo metodología ágil y criterios INVEST
+title: "[US-XXX]: "
+labels: ["user-story", "needs-planning"]
+assignees: ["Creadores-Program"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📋 Crear User Story
+        
+        Las User Stories son la base de nuestro desarrollo ágil. Este template te ayuda a crear historias que sigan los criterios INVEST y sean fáciles de implementar.
+        
+        ### 🎯 Criterios INVEST Recordatorio
+        - **I**ndependent - Independiente de otras historias
+        - **N**egotiable - Los detalles pueden refinarse
+        - **V**aluable - Aporta valor al usuario
+        - **E**stimable - Se puede estimar el esfuerzo
+        - **S**mall - Se completa en un sprint
+        - **T**estable - Tiene criterios verificables
+
+  - type: input
+    id: story-id
+    attributes:
+      label: 🏷️ ID de User Story
+      description: Identificador único de la historia (ej. US-001, US-042)
+      placeholder: "US-XXX"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user-type
+    attributes:
+      label: 👤 Tipo de Usuario
+      description: ¿Quién es el usuario principal de esta historia?
+      options:
+        - 🎮 Jugador - Usuario que juega el juego
+        - 👑 Administrador - Usuario con permisos administrativos
+        - 🔧 Desarrollador - Desarrollador que trabaja en el proyecto
+        - 🎯 Product Owner - Dueño del producto
+        - 🖥️ Sistema - El sistema automáticamente
+        - 🤖 NPC - Non-Player Character
+        - 👥 Moderador - Usuario con permisos de moderación
+        - 📊 Analista - Usuario que analiza datos/métricas
+        - Otro - Especificar en la descripción
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story
+    attributes:
+      label: 📖 Historia de Usuario
+      description: Escribe la historia siguiendo el formato estándar
+      placeholder: |
+        Como [tipo de usuario]
+        Quiero [funcionalidad/objetivo]
+        Para que [beneficio/razón/valor]
+      value: |
+        **Como** [tipo de usuario]
+        **Quiero** [funcionalidad/objetivo]  
+        **Para que** [beneficio/razón/valor]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: epic
+    attributes:
+      label: 📚 Epic Relacionado
+      description: ¿A qué epic pertenece esta user story?
+      options:
+        - 🎮 Core Gameplay - Mecánicas básicas del juego
+        - 🌐 API Development - Desarrollo de API REST
+        - 🔌 WebSocket System - Sistema de comunicación en tiempo real
+        - 👥 Player Management - Gestión de jugadores y autenticación
+        - 🤖 NPC System - Sistema de Non-Player Characters
+        - 🏗️ Architecture - Arquitectura y infraestructura
+        - 📱 User Interface - Interfaz de usuario
+        - 🔒 Security - Seguridad y protección
+        - 📊 Analytics - Métricas y análisis
+        - 🧪 Testing - Testing y calidad
+        - 📚 Documentation - Documentación
+        - 🚀 DevOps - CI/CD y deployment
+        - Sin Epic - Historia independiente
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 📊 Prioridad
+      description: ¿Cuál es la prioridad de esta user story?
+      options:
+        - 🔴 Crítica - Bloqueante, debe hacerse inmediatamente
+        - 🟠 Alta - Importante, debe hacerse pronto
+        - 🟡 Media - Útil, puede hacerse en el próximo sprint
+        - 🟢 Baja - Nice to have, puede esperar
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: 📏 Tamaño Estimado
+      description: ¿Qué tan grande consideras esta historia?
+      options:
+        - XS - 1-2 horas, cambio muy menor
+        - S - Medio día, cambio simple
+        - M - 1-2 días, desarrollo moderado  
+        - L - 3-5 días, desarrollo significativo
+        - XL - 1+ semana, necesita dividirse
+        - XXL - Muy grande, debe dividirse en historias menores
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: ✅ Criterios de Aceptación
+      description: Lista específica y verificable de lo que debe cumplir la historia
+      placeholder: |
+        - [ ] Criterio específico y medible 1
+        - [ ] Criterio específico y medible 2  
+        - [ ] Criterio específico y medible 3
+        - [ ] Los datos se validan correctamente
+        - [ ] Los errores se manejan apropiadamente
+        - [ ] La funcionalidad funciona en todos los navegadores soportados
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] 
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Descripción Detallada
+      description: Proporciona contexto adicional y detalles sobre la historia
+      placeholder: |
+        Contexto del problema:
+        - ¿Por qué es necesaria esta funcionalidad?
+        - ¿Qué problema resuelve?
+        
+        Comportamiento esperado:
+        - ¿Cómo debe funcionar?
+        - ¿Qué debe ver/experimentar el usuario?
+        
+        Casos especiales:
+        - ¿Hay edge cases importantes?
+        - ¿Qué pasa en situaciones de error?
+
+  - type: textarea
+    id: technical-notes
+    attributes:
+      label: 🔧 Notas Técnicas
+      description: Consideraciones técnicas importantes para la implementación
+      placeholder: |
+        - APIs o endpoints necesarios
+        - Cambios en base de datos
+        - Dependencias de otras historias
+        - Consideraciones de rendimiento
+        - Restricciones técnicas
+        - Patrones de diseño a usar
+
+  - type: textarea
+    id: testing-strategy
+    attributes:
+      label: 🧪 Estrategia de Testing
+      description: Cómo se va a probar esta funcionalidad
+      placeholder: |
+        Tests Unitarios:
+        - [ ] Test para función/método X
+        - [ ] Test para validación Y
+        
+        Tests de Integración:
+        - [ ] Test de flujo completo
+        - [ ] Test de comunicación API
+        
+        Tests Manuales:
+        - [ ] Verificar UX en navegador
+        - [ ] Probar casos edge
+      value: |
+        **Tests Unitarios:**
+        - [ ] 
+        - [ ] 
+        
+        **Tests de Integración:**
+        - [ ] 
+        - [ ] 
+        
+        **Tests Manuales:**
+        - [ ] 
+        - [ ]
+
+  - type: checkboxes
+    id: invest-criteria
+    attributes:
+      label: ✅ Validación INVEST
+      description: Verifica que tu historia cumple con los criterios INVEST
+      options:
+        - label: "**I**ndependent: Esta historia es independiente y puede desarrollarse por separado"
+        - label: "**N**egotiable: Los detalles pueden discutirse y refinarse durante el desarrollo"
+        - label: "**V**aluable: Esta historia aporta valor claro y tangible al usuario final"
+        - label: "**E**stimable: El equipo puede estimar razonablemente el esfuerzo requerido"
+        - label: "**S**mall: Esta historia se puede completar en un sprint (1-2 semanas máximo)"
+        - label: "**T**estable: Los criterios de aceptación son claros y verificables"
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: 🔗 Dependencias
+      description: ¿Esta historia depende de otras historias o tiene bloqueadores?
+      placeholder: |
+        Depende de:
+        - US-XXX: [Descripción de la dependencia]
+        - Configuración de [sistema/herramienta]
+        
+        Bloquea a:
+        - US-YYY: [Descripción del bloqueo]
+        
+        Prerequisitos:
+        - [Prerequisito 1]
+        - [Prerequisito 2]
+
+  - type: textarea
+    id: definition-done
+    attributes:
+      label: ✅ Definition of Done
+      description: Checklist específico para considerar esta historia como completada
+      placeholder: |
+        - [ ] Funcionalidad implementada según criterios de aceptación
+        - [ ] Tests unitarios escritos y pasando
+        - [ ] Tests de integración escritos y pasando  
+        - [ ] Code review completado
+        - [ ] Documentación actualizada (si aplica)
+        - [ ] Testing manual completado
+        - [ ] No hay regresiones en funcionalidad existente
+        - [ ] Deployment exitoso a staging
+        - [ ] Product Owner acepta la funcionalidad
+      value: |
+        - [ ] Funcionalidad implementada según criterios de aceptación
+        - [ ] Tests unitarios escritos y pasando
+        - [ ] Tests de integración escritos y pasando
+        - [ ] Code review completado y aprobado
+        - [ ] Documentación actualizada (si aplica)
+        - [ ] Testing manual completado exitosamente
+        - [ ] No hay regresiones en funcionalidad existente
+        - [ ] Deployment exitoso a ambiente de staging
+        - [ ] Product Owner acepta la funcionalidad
+        - [ ] 
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: ⚙️ Complejidad Técnica
+      description: ¿Qué tan compleja es técnicamente esta historia?
+      options:
+        - Baja - Cambios simples en código existente
+        - Media - Desarrollo nuevo pero straightforward
+        - Alta - Requiere diseño cuidadoso o cambios arquitectónicos
+        - Muy Alta - Cambios complejos con múltiples dependencias
+
+  - type: checkboxes
+    id: impact-areas
+    attributes:
+      label: 🌍 Áreas de Impacto
+      description: ¿Qué partes del sistema afectará esta historia?
+      options:
+        - label: 🎮 Game Engine/Core
+        - label: 🌐 REST API
+        - label: 🔌 WebSocket Communication  
+        - label: 👥 User Authentication
+        - label: 🤖 NPC System
+        - label: 💾 Data Persistence
+        - label: 📱 User Interface
+        - label: 🔧 Configuration
+        - label: 📚 Documentation
+        - label: 🧪 Testing Infrastructure
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: 🎨 Mockups/Diagramas (Opcional)
+      description: Si tienes mockups, wireframes, o diagramas, compártelos aquí
+      placeholder: |
+        Puedes arrastrar y soltar imágenes aquí, o usar markdown:
+        ![Descripción](url-de-la-imagen)
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: ℹ️ Notas Adicionales
+      description: Cualquier información adicional relevante
+      placeholder: |
+        - Feedback de usuarios
+        - Referencias a documentación externa
+        - Decisiones de diseño previas
+        - Consideraciones de UX
+        - Restricciones de timeline
+
+  - type: checkboxes
+    id: ready-criteria
+    attributes:
+      label: 🎯 Criterios de "Ready"
+      description: ¿Esta historia está lista para ser incluida en un sprint?
+      options:
+        - label: La historia tiene un título claro y descriptivo
+        - label: Los criterios de aceptación están definidos y son verificables
+        - label: Las dependencias están identificadas y resueltas
+        - label: La historia ha sido estimada por el equipo
+        - label: El Product Owner ha priorizado la historia
+        - label: Los aspectos técnicos están claros para el equipo
+        - label: La historia cumple con todos los criterios INVEST
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🚀 Próximos Pasos
+        
+        Una vez creada la User Story:
+        
+        1. **🔄 Planning Poker** - El equipo estimará la historia
+        2. **📋 Backlog Grooming** - Se refinará y priorizará
+        3. **🏃‍♂️ Sprint Planning** - Se incluirá en un sprint cuando esté ready
+        4. **⚡ Development** - El equipo implementará la funcionalidad
+        5. **✅ Review & Demo** - Se demostrará al Product Owner
+        
+        ## 🎯 Consejos para Buenas User Stories
+        
+        ### ✅ Hazlo
+        - **Enfócate en el valor del usuario**, no en soluciones técnicas
+        - **Usa lenguaje simple** que todos puedan entender
+        - **Sé específico** en los criterios de aceptación
+        - **Incluye casos edge** y manejo de errores
+        
+        ### ❌ Evita
+        - **Historias técnicas** que no aporten valor directo al usuario
+        - **Historias muy grandes** que no se puedan completar en un sprint
+        - **Criterios vagos** como "debería funcionar bien"
+        - **Dependencias complejas** que bloqueen el desarrollo
+        
+        ---
+        
+        **¡Gracias por crear una User Story bien estructurada!** 🎮✨
+        
+        Tu contribución al backlog ayuda a mantener el desarrollo organizado y enfocado en el valor del usuario.

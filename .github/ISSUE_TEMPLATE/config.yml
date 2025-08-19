@@ -1,0 +1,17 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Discussions - Preguntas y Conversaciones
+    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/discussions
+    about: Para preguntas generales, ideas, y discusiones sobre el proyecto
+  - name: 📚 Documentación del Proyecto
+    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend#readme
+    about: Lee la documentación completa del proyecto incluyendo setup y guías
+  - name: 🔒 Reportar Vulnerabilidad de Seguridad
+    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/security
+    about: Para reportar problemas de seguridad de forma privada y responsable
+  - name: 🤝 Guía de Contribución
+    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/blob/develop/CONTRIBUTING.md
+    about: Lee cómo contribuir al proyecto y las mejores prácticas
+  - name: 📋 Código de Conducta
+    url: https://github.com/Creadores-Program/CreadorCraft-Classic-Backend/blob/develop/CODE_OF_CONDUCT.md
+    about: Nuestras reglas y estándares de comportamiento en la comunidad
